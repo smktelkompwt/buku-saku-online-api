@@ -23,6 +23,8 @@ app.get('/', function (req, res) {
     });
 });
 app.use('/api/users', require('./modules/users/users.controller'));
+app.use('/api/import', require('./modules/import-data/import.controller'));
+app.use('/api/peraturan', require('./modules/peraturan/peraturan.controller'));
 
 
 // global error handler

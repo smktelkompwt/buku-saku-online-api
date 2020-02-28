@@ -1,8 +1,10 @@
 const express = require('express');
-const router = express.Router();
-const config = require('config.json');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const router = express.Router();
+
+// import helper
+const config = require('../../config.json');
 const db = require('../../helpers/db');
 const { ERROR: httpError } = require('../../helpers/httpError');
 const response = require('../../helpers/wrapper');
@@ -34,6 +36,7 @@ async function createAdmin(req,res) {
     
         return response.wrapper_success(res, 200, 'Succes Register User', query )
     } catch (error) {
+        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')        
     }
     
@@ -51,13 +54,14 @@ async function authenticateAdmin(req, res) {
             return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Email Incorrect')
         }
     
-        if(checkEmail && bcrypt.compareSync(model.password, checkEmail.password) && checkCode) {
+        if(checkEmail && bcrypt.compareSync(model.password, checkEmail.password)) {
             const token = jwt.sign({ sub: checkEmail.id }, config.secret);
             return response.wrapper_success(res, 200, 'Succes Login', checkEmail,token )
         } else {
             return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Password Incorrect')
         }
     } catch (error) {
+        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                
     }
 

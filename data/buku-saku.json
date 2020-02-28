@@ -3,7 +3,7 @@
       "bab": "Bab I Keputusan Umum",
       "pasal": [
         {
-          "title": "Pasal I Definisi Istilah",
+          "title": "Pasal 1 Definisi Istilah",
           "desc": [
                 {
                     "id": 1,
@@ -72,7 +72,7 @@
             ]
         },
         {
-            "title": "Pasal II Landasan, Maksud dan Tujuan",
+            "title": "Pasal 2 Landasan, Maksud dan Tujuan",
             "desc": [
                 {
                     "id" : 1,
@@ -94,6 +94,7 @@
         "bab": "Bab II Tata Tertib",
         "pasal": [
             {
+                "title": "Pasal 3 Waktu dan Tempat Pelaksanaan KBM",
                 "desc": [
                     {
                         "id": 1,
@@ -104,28 +105,244 @@
                         "descPasal": "Ketentuan Pelaksanaan KBM di Sekolah diatur sebagai berikut :"
                     },
                     {
-                        "id": 2,
-                        "descPasal": "Ketentuan Pelaksanaan KBM di Sekolah diatur sebagai berikut :"
+                        "id": 3,
+                        "descPasal": "Waktu KBM dimulai pukul 07.00 WIB dan berakhir pukul 16.00 WIB atau sesuai dengan jadwal pelajaran."
+                    },
+                    {
+                        "id": 4,
+                        "descPasal": "Peserta didik tidak dibenarkan berada di luar kelas saat KBM berlangsung tanpa izin guru kelas, kecuali KBM yang dilaksanakan di lapangan."
+                    },
+                    {
+                        "id": 5,
+                        "descPasal": "Peserta didik tidak dibenarkan keluar ruangan kelas selama berlangsungnya jam pelajaran, bila guru pengajar belum memasuki ruangan kelas. Sampai dengan sepuluh menit, pengurus kelas (ketua kelas) menghubungi guru pengampu/guru piket."
+                    },
+                    {
+                        "id": 6,
+                        "descPasal": "Peserta didik tidak dibenarkan memakai pakaian/atribut lain yang tidak sesuai dengan ketentuan sekolah, seperti jaket, sweater, topi, dan sejenisnya di lingkungan sekolah."
+                    },
+                    {
+                        "id": 7,
+                        "descPasal": "Peserta didik dianjurkan untuk tidak membawa uang berlebihan/barang berharga ke sekolah tanpa alasan yang jelas dan kehilangan menjadi tanggung jawab peserta didik sendiri."
+                    },
+                    {
+                        "id": 8,
+                        "descPasal": "Peserta didik tidak dibenarkan melakukan aktifitas yang tidak berkaitan dengan materi pelajaran saat KBM berlangsung; seperti mengaktifkan handphone, audio-video player (MP3, MP4, dan sejenisnya), bermain game, serta makan dan minum. "
+                    },
+                    {
+                        "id": 9,
+                        "descPasal": "Peserta didik tidak dibenarkan mengganggu jalannya KBM kelas lain."
+                    },
+                    {
+                        "id": 10,
+                        "descPasal": "Peserta didik wajib mengikuti seluruh proses KBM dengan tertib."
+                    },
+                    {
+                        "id": 11,
+                        "descPasal": "Waktu dan Tempat Pelaksanaan KBM di luar Sekolah ditentukan atas kesepakatan antara pihak Sekolah dengan institusi terkait."
+                    },
+                    {
+                        "id": 12,
+                        "descPasal": "4)Pelaksanaan kegiatan di luar waktu KBM wajib seizin guru pembimbing dan mengisi daftar penggunaan ruang di satpam."
+                    }
+                ]
+            },
+            {
+                "title": "Pasal 4 Kehadiran Peserta didik",
+                "desc": [
+                    {
+                        "id": 1,
+                        "descPasal": "Peserta didik wajib hadir sebelum KBM dimulai, bagi yang datang terlambat wajib melapor kepada guru piket."
                     },
                     {
                         "id": 2,
-                        "descPasal": "Ketentuan Pelaksanaan KBM di Sekolah diatur sebagai berikut :"
+                        "descPasal": "Peserta didik yang meninggalkan sekolah harus izin guru piket dan guru kelas dengan diketahui oleh wali kelasnya."
+                    },
+                    {
+                        "id": 3,
+                        "descPasal": "Peserta didik yang tidak hadir di sekolah wajib :"
+                    },
+                    {
+                        "id": 4,
+                        "descPasal": "Membuat surat izin yang ditandatangani oleh Orang tua / Wali / Bapak Ibu kos atau menyerahkan surat keterangan dokter bagi yang sakit."
+                    },
+                    {
+                        "id": 5,
+                        "descPasal": "Memberitahu melalui media komunikasi elektronik, yang ditindaklanjuti dengan surat izin dari orang tua / wali atau surat keterangan dokter bagi yang sakit."
+                    },
+                    {
+                        "id": 6,
+                        "descPasal": "Peserta didik kelas X dan XI wajib mengikuti 1 (satu) kegiatan ekstrakurikuler pilihan."
+                    },
+                    {
+                        "id": 7,
+                        "descPasal": "Peserta didik harus hadir untuk mengikuti kegiatan-kegiatan sekolah yang diwajibkan."
+                    },
+                    {
+                        "id": 8,
+                        "descPasal": "Bagi peserta didik yang membawa kendaraan :"
+                    },
+                    {
+                        "id": 9,
+                        "descPasal": "Wajib memiliki dan membawa SIM (Surat Ijin Mengemudi) beserta kelengkapannya (helm, dll)."
+                    },
+                    {
+                        "id": 10,
+                        "descPasal": "Wajib memarkir kendaraan pada tempat parkir secara teratur/tertib."
+                    },
+                    {
+                        "id": 11,
+                        "descPasal": "Dilarang membunyikan sepeda motor keras-keras pada jam sekolah."
+                    },
+                    {
+                        "id": 12,
+                        "descPasal": "Dilarang menggunakan knalpot racing atau tidak standar (bobokan)."
+                    },
+                    {
+                        "id": 13,
+                        "descPasal": "Dilarang membawa kendaraan roda 4 pada jam sekolah."
+                    }
+                ]
+            },
+            {
+                "title": "Pasal 5 Ketentuan Pakaian Seragam dan Kelengkapannya",
+                "desc": [
+                    {
+                        "id": 1,
+                        "descPasal": "Pakaian seragam harian peserta didik sudah ditentukan sesuai kelas masing-masing dengan ketentuan sebagai berikut :"
                     },
                     {
                         "id": 2,
-                        "descPasal": "Ketentuan Pelaksanaan KBM di Sekolah diatur sebagai berikut :"
+                        "descPasal": "Senin, Seragam OSIS lengkap, berdasi, ikat pinggang hitam,  sepatu hitam, kaos kaki putih."
+                    },
+                    {
+                        "id": 3,
+                        "descPasal": "Selasa, Seragam Praktik."
+                    },
+                    {
+                        "id": 4,
+                        "descPasal": "Rabu, Seragam Identitas sekolah dengan atribut lengkap, ikat pinggang hitam, sepatu hitam, kaos kaki putih."
+                    },
+                    {
+                        "id": 5,
+                        "descPasal": "Kamis, Seragam Batik Telkom School, ikat pinggang hitam, sepatu hitam, kaos kaki putih."
+                    },
+                    {
+                        "id": 6,
+                        "descPasal": "Jumat, Seragam Pramuka, ikat pinggang hitam, sepatu hitam (seragam), kaos kaki hitam."
+                    },
+                    {
+                        "id": 7,
+                        "descPasal": "Pada saat memakai pakaian praktik :"
+                    },
+                    {
+                        "id": 8,
+                        "descPasal": "Peserta didik wajib bersepatu hitam, kaos kaki hitam dan ikat pinggang hitam."
+                    },
+                    {
+                        "id": 9,
+                        "descPasal": "Peserta didik putri yang berjilbab mengenakan kerudung putih polos tanpa motif."
+                    },
+                    {
+                        "id": 10,
+                        "descPasal": "Pada saat ekstrakurikuler : Pakaian rapi, sopan, bersepatu, dan disesuaikan dengan jenis ekstrakurikuler masing-masing."
+                    },
+                    {
+                        "id": 11,
+                        "descPasal": "Peserta didik diwajibkan berpakaian seragam dengan atribut lengkap (badge, lokasi, logo sekolah, nama diri)."
+                    },
+                    {
+                        "id": 12,
+                        "descPasal": "Peserta didik diwajibkan berpakaian rapi, bersih, dan sopan."
+                    },
+                    {
+                        "id": 13,
+                        "descPasal": "Peserta didik dilarang memakai aksesori :"
+                    },
+                    {
+                        "id": 14,
+                        "descPasal": "Pada saat ekstrakurikuler: Pakaian rapi, sopan, bersepatu, dan disesuaikan dengan jenis ekstrakurikuler masing-masing."
+                    },
+                    {
+                        "id": 15,
+                        "descPasal": "Putra: dilarang bertindik, bertato, memakai/membawa kalung, gelang, cincin, anting, dan sejenisnya."
+                    },
+                    {
+                        "id": 16,
+                        "descPasal": "Putri: dilarang bertato, bertindik berlebihan, berdandan berlebihan, dan memakai gelang ataupun kalung bukan emas."
+                    },
+                    {
+                        "id": 17,
+                        "descPasal": "Peserta didik wajib memakai pakaian olah raga dan kelengkapannya yang telah ditentukan sekolah pada saat olah raga."
+                    },
+                    {
+                        "id": 18,
+                        "descPasal": "Bagi peserta didik putri yang berjilbab :"
+                    },
+                    {
+                        "id": 19,
+                        "descPasal": "Pada saat memakai seragam OSIS dan baju identitas : kerudung putih tanpa motif."
+                    },
+                    {
+                        "id": 20,
+                        "descPasal": "Pada saat memakai seragam pramuka : kerudung coklat tua tanpa motif."
+                    }
+                ]
+            },
+            {
+                "title": "Pasal 6 Ketentuan Waktu Istirahat",
+                "desc": [
+                    {
+                        "id": 1,
+                        "descPasal": "Jadwal waktu istirahat pelaksanaan KBM di sekolah adalah sebagai berikut :"
                     },
                     {
                         "id": 2,
-                        "descPasal": "Ketentuan Pelaksanaan KBM di Sekolah diatur sebagai berikut :"
+                        "descPasal": "Istirahat I: 08.30 – 09.00 WIB (Jumat: 08.30 – 08.45 WIB)"
+                    },
+                    {
+                        "id": 3,
+                        "descPasal": "Istirahat II: 12.00 – 13.00 WIB (Jumat: 11.30 – 13.00 WIB)"
+                    },
+                    {
+                        "id": 4,
+                        "descPasal": "Selama kurun waktu istirahat tersebut pada ayat 1) pasal ini :"
+                    },
+                    {
+                        "id": 5,
+                        "descPasal": "Peserta didik tidak diperbolehkan membawa kendaraan bermotor keluar lingkungan sekolah."
+                    },
+                    {
+                        "id": 6,
+                        "descPasal": "Peserta didik dianjurkan untuk tidak berada di dalam kelas, tetapi tetap dalam lingkungan sekolah."
+                    }
+                ]
+            },
+            {
+                "title": "Pasal 7 Ketentuan Perilaku Peserta didik",
+                "desc": [
+                    {
+                        "id": 1,
+                        "descPasal": "Peserta didik wajib bersikap dan berperilaku sopan, menghormati Bapak/Ibu guru dan karyawan serta tamu sekolah, bertutur kata yang baik di sekolah maupun di luar sekolah."
                     },
                     {
                         "id": 2,
-                        "descPasal": "Ketentuan Pelaksanaan KBM di Sekolah diatur sebagai berikut :"
+                        "descPasal": "Peserta didik wajib menjaga keamanan, ketertiban, kebersihan, keindahan dan kenyamanan di sekolah."
                     },
                     {
-                        "id": 2,
-                        "descPasal": "Ketentuan Pelaksanaan KBM di Sekolah diatur sebagai berikut :"
+                        "id": 3,
+                        "descPasal": "Panjang rambut peserta didik putra maksimal 3 cm dan dipotong rapi serta tidak diwarnai."
+                    },
+                    {
+                        "id": 4,
+                        "descPasal": "Peserta didik dilarang berkuku panjang dan mewarnai kuku."
+                    },
+                    {
+                        "id": 5,
+                        "descPasal": "Peserta didik dilarang mencontek dan bekerja sama pada saat ujian / ulangan berlangsung."
+                    },
+                    {
+                        "id": 6,
+                        "descPasal": ""
                     }
                 ]
             }

@@ -21,7 +21,6 @@ async function createAdmin(req,res) {
             name : req.body.name,
             email : req.body.email,
             phone : req.body.phone,
-            secretCode: req.body.secretCode,
             password : bcrypt.hashSync(req.body.password, 10)
         }
         let checkEmail = await User.findOne({ "email" : model.email });
@@ -45,16 +44,11 @@ async function authenticateAdmin(req, res) {
         let model = {
             email : req.body.email,
             password : req.body.password,
-            secretCode : req.body.secretCode
         }
         const checkEmail = await User.findOne({ "email" : model.email });
-        const checkCode = await User.findOne({ "secretCode" : model.secretCode })
 
         if(!checkEmail) {
             return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Email Incorrect')
-        }
-        if(!checkCode) {
-            return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'SecretCode Incorrect')
         }
     
         if(checkEmail && bcrypt.compareSync(model.password, checkEmail.password) && checkCode) {

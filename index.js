@@ -22,10 +22,11 @@ app.get('/', function (req, res) {
         message: 'Service is successfull running :D'
     });
 });
+
 app.use('/api/users', require('./modules/users/users.controller'));
 app.use('/api/import', require('./modules/import-data/import.controller'));
 app.use('/api/peraturan', require('./modules/peraturan/peraturan.controller'));
-
+app.use('/api/point', require('./modules/point/point.controller'));
 
 // global error handler
 app.use(errorHandler);

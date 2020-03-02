@@ -6,8 +6,8 @@ const bodyParser = require('body-parser');
 const jwt = require('helpers/jwt');
 const errorHandler = require('helpers/error-handler');
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: false }));
+app.use(bodyParser.json({ limit: "50mb" }));
 app.use(cors());
 
 // use JWT auth to secure the api
@@ -27,6 +27,7 @@ app.use('/api/users', require('./modules/users/users.controller'));
 app.use('/api/import', require('./modules/import-data/import.controller'));
 app.use('/api/peraturan', require('./modules/peraturan/peraturan.controller'));
 app.use('/api/point', require('./modules/point/point.controller'));
+app.use('/api/lapor', require('./modules/lapor/lapor.controller'));
 
 // global error handler
 app.use(errorHandler);

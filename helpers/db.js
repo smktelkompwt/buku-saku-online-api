@@ -7,5 +7,6 @@ mongoose.Promise = global.Promise;
 module.exports = {
     User: require('../modules/users/users.model'),
     Aturan: require('../modules/import-data/import.model'),
-    Point: require('../modules/import-data/point.model')
+    Point: require('../modules/import-data/point.model'),
+    Lapor: require('../modules/lapor/lapor.model')
 };

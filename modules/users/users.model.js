@@ -6,6 +6,7 @@ const schema = new Schema({
     email: { type: String },
     password: { type: String },
     class: { type: String },
+    nis: { type: Number },
     point: { type: Number },
     role: { type: String },
     createdDate: { type: Date, default: Date.now }

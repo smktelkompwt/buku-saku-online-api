@@ -14,8 +14,11 @@ const User = db.User;
 // routes
 router.post('/admin/login', authenticateAdmin);
 router.post('/admin/register', createAdmin);
+router.get('/admin/all', getAllAdmin);
 router.post('/register', registerUser);
 router.post('/login', authenticateAdmin);
+router.get('/all', getAllUser);
+router.delete('/delete', deleteAllUser);
 
 module.exports = router;
 
@@ -75,6 +78,7 @@ async function registerUser(req,res) {
             name: req.body.name,
             email: req.body.email,
             class: req.body.class,
+            nis: req.body.nis,
             point: 0,
             password : bcrypt.hashSync(req.body.password, 10),
             role: "user"
@@ -94,4 +98,33 @@ async function registerUser(req,res) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')        
     }
     
+}
+
+async function getAllUser(req,res) {
+    try {
+        let query = await User.find({ "role": "user" });
+        return response.wrapper_success(res, 200, "Sukses Get All User", query)
+    } catch (error) {
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
+    }
+    
+}
+
+async function getAllAdmin(req,res) {
+    try {
+        let query = await User.find({ "role": "admin" });
+        return response.wrapper_success(res, 200, "Sukses Get All User", query)
+    } catch (error) {
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
+    }
+    
+}
+
+async function deleteAllUser(req,res) {
+    try {
+        let query = await User.remove();
+        return response.wrapper_success(res, 200, "Sukses Hapus All User", query)
+    } catch (error) {
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                         
+    }
 }

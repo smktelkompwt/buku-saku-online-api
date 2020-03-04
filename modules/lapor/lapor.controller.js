@@ -11,6 +11,8 @@ const uploadBase64 = require('../../helpers/uploadBase64');
 
 const User = db.User;
 const Point = db.Point;
+const Lapor = db.Lapor;
+const Aktivitas = db.Aktivitas;
 
 // routes
 router.post('/upload', uploadPelanggaran);
@@ -60,8 +62,12 @@ async function uploadPelanggaran(req,res) {
             },
             image: path + image,
        }    
-       console.log(model)
+       let lapor = new Lapor(model)
+       let query = await lapor.save();
+
+       return response.wrapper_success(res, 200, 'Succes Upload Pelanggaran', query )
     } catch (error) {
+        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, error)         
         
     }

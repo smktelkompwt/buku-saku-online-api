@@ -1,18 +1,46 @@
 const fs = require('fs');
-module.exports = uploadBase64;
+const ba64 = require('ba64');
+const minio = require('./minioSdk');
+const wrapper = require('./wrapper');
 
-function uploadBase64(data) {
-      
-    const path = './uploads/'+Date.now()+'.png'
- 
-    const imgdata = data;
+const uploadImages = async (bucket, rawImg, objName) => {
 
-    // to convert base64 format into random filename
-    const base64Data = imgdata.replace(/^data:([A-Za-z-+/]+);base64,/, '');
-    try {
-        fs.writeFileSync(path, base64Data,  {encoding: 'base64'});  
-        return path;      
-    } catch (error) {
-        return error
-    }
-}
+  if(!fs.existsSync('./uploads')){
+    fs.mkdirSync('./uploads');
+  }
+  const path = `./uploads/${objName.filename}`;
+  let data_url;
+
+  const ext = rawImg.substring('data:image/'.length, rawImg.indexOf(';base64'));
+
+  switch (ext) {
+  case 'png':
+    data_url = `data:image/png${rawImg}`;
+    break;
+  case 'jpg':
+    data_url = `data:image/jpg${rawImg}`;
+    break;
+  case 'jpeg':
+    data_url = `data:image/jpeg${rawImg}`;
+    break;
+  }
+
+  ba64.writeImageSync(path, data_url);
+
+  const key = `${objName.folder}/${objName.filename}.${ext}`;
+  const images = fs.createReadStream(`./uploads/${objName.filename}.${ext}`);
+
+  const upload = await minio.objectUpload(bucket, key, images.path);
+
+  fs.unlinkSync(`./uploads/${objName.filename}.${ext}`);
+
+  if (upload.err) {
+    return wrapper.wrapper_error('err');
+  }
+
+  return key;
+};
+
+module.exports = {
+  uploadImages
+};

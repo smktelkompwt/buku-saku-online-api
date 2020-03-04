@@ -64,9 +64,9 @@ async function uploadPelanggaran(req,res) {
         if (uploadPhoto.err) {
           return wrapper.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong');
         }
-        const minioEndpoint = "localhost"
+        const minioEndpoint = "54.210.29.24"
         const port = 9000;
-        let resultImage = `${minioEndpoint}:${port}/${uploadPhoto}`
+        let resultImage = `${minioEndpoint}:${port}/${bucket}/${uploadPhoto}`
       
         // let image = await uploadBase64(req.body.image);
         // image.replace(/\./g,' ')

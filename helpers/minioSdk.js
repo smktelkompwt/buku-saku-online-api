@@ -4,7 +4,7 @@ const wrapper = require('./wrapper')
 let minioClient = new Minio.Client({
     accessKey: "minio",
     secretKey: "minio123",
-    endPoint: "localhost",
+    endPoint: "54.210.29.24",
     port: 9000,
     useSSL: false
   }

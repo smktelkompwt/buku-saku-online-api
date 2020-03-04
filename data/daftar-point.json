@@ -1,0 +1,47 @@
+[
+    {
+        "kode": "A-01",
+        "jenis_pelanggaran": "Peserta didik datang terlambat kurang dari 10 menit",
+        "point": 3
+    },
+    {
+        "kode": "A-02",
+        "jenis_pelanggaran": "Peserta didik datang terlambat kurang dari 11 menit",
+        "point": 3
+    },
+    {
+        "kode": "A-04",
+        "jenis_pelanggaran": "Peserta didik datang terlambat kurang dari 12 menit",
+        "point": 3
+    },
+    {
+        "kode": "A-05",
+        "jenis_pelanggaran": "Peserta didik datang terlambat kurang dari 13 menit",
+        "point": 3
+    },
+    {
+        "kode": "A-07",
+        "jenis_pelanggaran": "Peserta didik datang terlambat kurang dari 14 menit",
+        "point": 3
+    },
+    {
+        "kode": "A-08",
+        "jenis_pelanggaran": "Peserta didik datang terlambat kurang dari 15 menit",
+        "point": 3
+    },
+    {
+        "kode": "A-09",
+        "jenis_pelanggaran": "Peserta didik datang terlambat kurang dari 16 menit",
+        "point": 3
+    },
+    {
+        "kode": "B-01",
+        "jenis_pelanggaran": "Peserta didik datang terlambat kurang dari 17 menit",
+        "point": 3
+    },
+    {
+        "kode": "B-02",
+        "jenis_pelanggaran": "Peserta didik datang terlambat kurang dari 18 menit",
+        "point": 3
+    }
+]

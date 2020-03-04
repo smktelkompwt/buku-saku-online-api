@@ -2,11 +2,13 @@
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
-    name: { type: String, required: true },
-    phone: { type: String, required: true },
-    email: { type: String, required: true },
-    secretCode : { type: String, required: true },
-    password: { type: String, required: true },
+    name: { type: String },
+    email: { type: String },
+    password: { type: String },
+    class: { type: String },
+    nis: { type: Number },
+    point: { type: Number },
+    role: { type: String },
     createdDate: { type: Date, default: Date.now }
 });
 

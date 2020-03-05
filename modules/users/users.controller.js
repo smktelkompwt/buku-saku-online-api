@@ -19,7 +19,7 @@ router.post('/register', registerUser);
 router.post('/login', authenticateAdmin);
 router.get('/all', getAllUser);
 router.delete('/delete', deleteAllUser);
-router.get('/get/', getUser);
+router.get('/get/', getUserbyId);
 router.put('/edit/', editUser);
 
 module.exports = router;
@@ -131,7 +131,7 @@ async function deleteAllUser(req, res) {
     }
 }
 
-async function getUser(req, res) {
+async function getUserbyId(req, res) {
     try {
         let query = await User.findById({ _id: req.query.id });
 

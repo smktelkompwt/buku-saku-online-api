@@ -67,10 +67,6 @@ async function uploadPelanggaran(req,res) {
         const minioEndpoint = "54.210.29.24"
         const port = 9000;
         let resultImage = `${minioEndpoint}:${port}/${bucket}/${uploadPhoto}`
-      
-        // let image = await uploadBase64(req.body.image);
-        // image.replace(/\./g,' ')
-        // let path = "localhost:3000/buku-saku-online-api"
 
         let model = {
             user: {
@@ -89,6 +85,18 @@ async function uploadPelanggaran(req,res) {
             },
             image: resultImage,
        }    
+       
+       let userModel = {
+            name: getUser[0].name,
+            email: getUser[0].email,
+            class: getUser[0].class,
+            nis: getUser[0].nis,
+            point: getUser[0].point + getPelanggaran[0].point,
+            password : getUser[0].password,
+            role: getUser[0].role
+        }
+       
+       await User.update({ "nis": req.body.nis }, userModel)
        let lapor = new Lapor(model)
        let query = await lapor.save();
 

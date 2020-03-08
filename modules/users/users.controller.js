@@ -143,18 +143,19 @@ async function getUserbyId(req, res) {
 
 async function editUser(req, res) {
     try {
-        let query = User.findOneAndUpdate({ _id: req.query.id }, {
-            $set:
-            {
-                name: req.body.name,
-                email: req.body.email,
-                class: req.body.class,
-                nis: req.body.nis,
-                password: req.body.password
-            }
-        })
+        let id = req.query.id;
+        let getByid = await User.findById({ _id: id });
 
-            .then(data => { User.find({}) })
+        let model = {
+            name: req.body.name ? req.body.name : getByid.name,
+            email: req.body.email ? req.body.email : getByid.email,
+            class: req.body.class ? req.body.class : getByid.class,
+            nis: req.body.nis ? req.body.nis : getByid.nis,
+            password: req.body.password ? req.body.password : getByid.password,
+            point: req.body.point ? req.body.point : getByid.point
+        }
+
+        let query = await User.update({ _id: id }, model)
 
         return response.wrapper_success(res, 200, "Sukses Edit User", query)
     } catch (error) {

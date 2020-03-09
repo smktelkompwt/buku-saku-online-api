@@ -20,6 +20,7 @@ const Aktivitas = db.Aktivitas;
 // routes
 router.post('/upload', uploadPelanggaran);
 router.get('/all', getAllPelanggaran);
+router.get('/me', getAllPelanggaran);
 router.get('/', getPelanggaranByid);
 router.delete('/delete', deleteAllLaporan);
 module.exports = router;
@@ -112,6 +113,20 @@ async function getAllPelanggaran(req,res) {
     try {
         let query = await Lapor.find();
         return response.wrapper_success(res, 200, "Sukses Get Pelanggaran", query)
+    } catch (error) {
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
+    }   
+}
+
+async function getAllPelanggaranbyUser(req,res) {
+    try {
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+        
+        let query = await Lapor.find({ 'user.id': user_id });
+        return response.wrapper_success(res, 200, "Sukses Get Aktivitas User", query)
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
     }   

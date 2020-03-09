@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema({
     user: {
-        user_id: { type: String },
+        id: { type: String },
         nis: { type: Number },
         nama: { type: String },
         kelas: { type: String },

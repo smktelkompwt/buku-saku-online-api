@@ -10,6 +10,7 @@ const { ERROR: httpError } = require('../../helpers/httpError');
 const response = require('../../helpers/wrapper');
 
 const User = db.User;
+const Lapor = db.Lapor;
 
 // routes
 router.post('/admin/login', authenticateAdmin);
@@ -134,9 +135,18 @@ async function deleteAllUser(req, res) {
 async function getUserbyId(req, res) {
     try {
         let query = await User.findById({ _id: req.query.id });
-
-        return response.wrapper_success(res, 200, "Sukses Get User", query)
+        let getPelanggaran = await Lapor.find({ 'user.id': req.query.id })
+        console.log(getPelanggaran)
+        let model = {
+            id: query.id,
+            name: query.name,
+            email: query.email,
+            password: query.password,
+            pelanggaran: getPelanggaran
+        }
+        return response.wrapper_success(res, 200, "Sukses Get User", model)
     } catch (error) {
+        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
     }
 }

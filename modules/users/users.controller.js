@@ -22,6 +22,7 @@ router.get('/all', getAllUser);
 router.delete('/delete', deleteAllUser);
 router.get('/get/', getUserbyId);
 router.put('/edit/', editUser);
+router.get('/me', getUserbyToken)
 
 module.exports = router;
 
@@ -170,5 +171,19 @@ async function editUser(req, res) {
         return response.wrapper_success(res, 200, "Sukses Edit User", query)
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
+    }
+}
+
+async function getUserbyToken(req, res) {
+    try {
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        let query = await User.find({ '_id': user_id });
+        return response.wrapper_success(res, 200, "Sukses Get User", query)
+    } catch (error) {
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')        
     }
 }

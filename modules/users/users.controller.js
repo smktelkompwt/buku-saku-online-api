@@ -137,14 +137,17 @@ async function getUserbyId(req, res) {
     try {
         let query = await User.findById({ _id: req.query.id });
         let getPelanggaran = await Lapor.find({ 'user.id': req.query.id })
-        console.log(getPelanggaran)
+
         let model = {
             id: query.id,
             name: query.name,
+            kelas: query.class,
             email: query.email,
-            password: query.password,
+            point: query.point,
+            countPelanggaran: getPelanggaran.length,
             pelanggaran: getPelanggaran
         }
+        
         return response.wrapper_success(res, 200, "Sukses Get User", model)
     } catch (error) {
         console.log(error)

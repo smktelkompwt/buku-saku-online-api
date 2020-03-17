@@ -11,6 +11,7 @@ const response = require('../../helpers/wrapper');
 const uploadBase64 = require('../../helpers/uploadBase64');
 const uploads = require('../../helpers/uploadBase64');
 const minio = require('../../helpers/minioSdk');
+const dateFormat = require('../../helpers/dateFormat');
 
 const User = db.User;
 const Point = db.Point;
@@ -85,6 +86,7 @@ async function uploadPelanggaran(req,res) {
                 nama: getPelapor[0].name
             },
             image: resultImage,
+            createdDate: dateFormat(Date.now())
        }    
        
        let userModel = {
@@ -100,6 +102,16 @@ async function uploadPelanggaran(req,res) {
        await User.update({ "nis": req.body.nis }, userModel)
        let lapor = new Lapor(model)
        let query = await lapor.save();
+       
+       let activityModel = {
+           user_id: getPelapor[0]._id,
+           username: getPelapor[0].name,
+           activity: "Upload Pelanggaran",
+           created_at: dateFormat(Date.now())
+       }
+
+       let activity = new Aktivitas(activityModel);
+       await activity.save()
 
        return response.wrapper_success(res, 200, 'Succes Upload Pelanggaran', query )
     } catch (error) {

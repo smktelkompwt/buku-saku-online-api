@@ -19,6 +19,14 @@ module.exports = router;
 async function getAll(req,res) {
     try {
         let query = await Aturan.find();
+
+                // Activity
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+ 
+        activity("Get All Peraturan",user_id)
         return response.wrapper_success(res, 200, "Sukses Get Peraturan Peraturan", query)
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
@@ -33,6 +41,14 @@ async function getById(req, res) {
         }
     
         let query = await Aturan.findById(model._id);
+
+        // Activity
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+ 
+        activity("Get Peraturan by id",user_id)        
         return response.wrapper_success(res, 200, "Sukses Get Peraturan Peraturan by id", query)
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                 
@@ -42,6 +58,14 @@ async function getById(req, res) {
 async function _delete(req, res) {
     try {
         let query = await Aturan.remove();
+
+                // Activity
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+ 
+        activity("Delete All Peraturan",user_id)
         return response.wrapper_success(res, 200, "Sukses Hapus Peraturan", query)
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                         
@@ -64,7 +88,13 @@ async function getPasal(req, res) {
             title: data.title,
             desc: data.desc
         }
-        console.log(query.pasal[0])
+        // Activity
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+ 
+        activity("Get Pasal",user_id)
         return response.wrapper_success(res, 200, "Sukses Get Peraturan Peraturan by id", newModel)
     } catch (error) {
         console.log(error)

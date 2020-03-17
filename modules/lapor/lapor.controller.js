@@ -124,6 +124,14 @@ async function uploadPelanggaran(req,res) {
 async function getAllPelanggaran(req,res) {
     try {
         let query = await Lapor.find();
+
+                // Activity
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+ 
+        activity("Get All Pelanggaran",user_id)
         return response.wrapper_success(res, 200, "Sukses Get Pelanggaran", query)
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
@@ -151,6 +159,14 @@ async function getPelanggaranByid(req, res) {
         }
     
         let query = await Lapor.findById(model._id);
+
+                // Activity
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+ 
+        activity("Get Pelanggaran By Id",user_id)
         return response.wrapper_success(res, 200, "Sukses Get Peraturan Peraturan by id", query)
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                 
@@ -160,6 +176,14 @@ async function getPelanggaranByid(req, res) {
 async function deleteAllLaporan(req,res) {
     try {
         let query = await Lapor.remove();
+
+                // Activity
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+ 
+        activity("Delete All Laporan",user_id)
         return response.wrapper_success(res, 200, "Sukses Hapus All Peraturan", query)
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                         

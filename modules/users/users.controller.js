@@ -8,9 +8,12 @@ const config = require('../../config.json');
 const db = require('../../helpers/db');
 const { ERROR: httpError } = require('../../helpers/httpError');
 const response = require('../../helpers/wrapper');
+const dateFormat = require('../../helpers/dateFormat');
+const activity = require('../../helpers/insertActivity');
 
 const User = db.User;
 const Lapor = db.Lapor;
+const Aktivitas = db.Aktivitas;
 
 // routes
 router.post('/admin/login', authenticateAdmin);
@@ -65,6 +68,16 @@ async function authenticateAdmin(req, res) {
 
         if (checkEmail && bcrypt.compareSync(model.password, checkEmail.password)) {
             const token = jwt.sign({ sub: checkEmail.id }, config.secret);
+
+            let activityModel = {
+                user_id: checkEmail._id,
+                username: checkEmail.name,
+                activity: "Login",
+                created_at: dateFormat(Date.now())
+            }
+    
+            let activity = new Aktivitas(activityModel);
+            await activity.save()
             return response.wrapper_success(res, 200, 'Succes Login', checkEmail, token)
         } else {
             return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Password Incorrect')
@@ -107,8 +120,18 @@ async function registerUser(req, res) {
 async function getAllUser(req, res) {
     try {
         let query = await User.find({ "role": "user" });
+
+        // Activity
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        activity("Get All User",user_id)
+
         return response.wrapper_success(res, 200, "Sukses Get All User", query)
     } catch (error) {
+        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
     }
 
@@ -117,6 +140,15 @@ async function getAllUser(req, res) {
 async function getAllAdmin(req, res) {
     try {
         let query = await User.find({ "role": "admin" });
+
+        // Activity
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        activity("Get All Admin",user_id)
+
         return response.wrapper_success(res, 200, "Sukses Get All User", query)
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
@@ -127,6 +159,15 @@ async function getAllAdmin(req, res) {
 async function deleteAllUser(req, res) {
     try {
         let query = await User.remove();
+
+        // Activity
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        activity("Delete All User",user_id)
+
         return response.wrapper_success(res, 200, "Sukses Hapus All User", query)
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
@@ -147,7 +188,14 @@ async function getUserbyId(req, res) {
             countPelanggaran: getPelanggaran.length,
             pelanggaran: getPelanggaran
         }
-        
+
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        activity("Get User By Id",user_id)
+
         return response.wrapper_success(res, 200, "Sukses Get User", model)
     } catch (error) {
         console.log(error)
@@ -171,6 +219,13 @@ async function editUser(req, res) {
 
         let query = await User.update({ _id: id }, model)
 
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        activity("Edit User",user_id)
+
         return response.wrapper_success(res, 200, "Sukses Edit User", query)
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
@@ -185,6 +240,13 @@ async function getUserbyToken(req, res) {
         let user_id = decode.sub;
 
         let query = await User.find({ '_id': user_id });
+
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        activity("Get User by Token",user_id)
         return response.wrapper_success(res, 200, "Sukses Get User", query)
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')        

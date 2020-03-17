@@ -241,11 +241,6 @@ async function getUserbyToken(req, res) {
 
         let query = await User.find({ '_id': user_id });
 
-        let token = req.headers.authorization.replace('Bearer ','');
-    
-        let decode = jwt.decode(token);
-        let user_id = decode.sub;
-
         activity("Get User by Token",user_id)
         return response.wrapper_success(res, 200, "Sukses Get User", query)
     } catch (error) {

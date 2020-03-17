@@ -1,10 +1,13 @@
 const express = require('express');
+const jwt = require('jsonwebtoken');
 const router = express.Router();
 
 // import helper
 const db = require('../../helpers/db');
 const { ERROR: httpError } = require('../../helpers/httpError');
 const response = require('../../helpers/wrapper');
+const dateFormat = require('../../helpers/dateFormat');
+const activity = require('../../helpers/insertActivity');
 
 const Point = db.Point;
 
@@ -28,6 +31,7 @@ async function getAll(req,res) {
         activity("Get All Point",user_id)
         return response.wrapper_success(res, 200, "Sukses Get Point Pelanggaran", query)
     } catch (error) {
+        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
     }
     

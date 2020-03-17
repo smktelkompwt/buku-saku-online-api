@@ -12,6 +12,7 @@ const uploadBase64 = require('../../helpers/uploadBase64');
 const uploads = require('../../helpers/uploadBase64');
 const minio = require('../../helpers/minioSdk');
 const dateFormat = require('../../helpers/dateFormat');
+const activity = require('../../helpers/insertActivity')
 
 const User = db.User;
 const Point = db.Point;
@@ -125,7 +126,7 @@ async function getAllPelanggaran(req,res) {
     try {
         let query = await Lapor.find();
 
-                // Activity
+        // Activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -134,6 +135,7 @@ async function getAllPelanggaran(req,res) {
         activity("Get All Pelanggaran",user_id)
         return response.wrapper_success(res, 200, "Sukses Get Pelanggaran", query)
     } catch (error) {
+        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
     }   
 }

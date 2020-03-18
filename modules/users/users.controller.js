@@ -24,8 +24,10 @@ router.post('/login', authenticateAdmin);
 router.get('/all', getAllUser);
 router.delete('/delete', deleteAllUser);
 router.get('/get/', getUserbyId);
-router.put('/edit/', editUser);
+router.put('/edit', editUser);
 router.get('/me', getUserbyToken)
+router.delete('/remove', deleteUserbyId);
+router.put('/admin/edit', editAdmin)
 
 module.exports = router;
 
@@ -213,8 +215,9 @@ async function editUser(req, res) {
             email: req.body.email ? req.body.email : getByid.email,
             class: req.body.class ? req.body.class : getByid.class,
             nis: req.body.nis ? req.body.nis : getByid.nis,
-            password: req.body.password ? req.body.password : getByid.password,
-            point: req.body.point ? req.body.point : getByid.point
+            password: bcrypt.hashSync(req.body.password, 10) ? bcrypt.hashSync(req.body.password): getByid.password,
+            point: req.body.point ? req.body.point : getByid.point,
+            role: req.body.role ? req.body.role: getByid.role
         }
 
         let query = await User.update({ _id: id }, model)
@@ -245,5 +248,50 @@ async function getUserbyToken(req, res) {
         return response.wrapper_success(res, 200, "Sukses Get User", query)
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')        
+    }
+}
+
+async function deleteUserbyId(req,res) {
+    try {
+        let query = await User.findByIdAndRemove({ _id: req.query.id });
+
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        activity("Delete User",user_id)
+
+        return response.wrapper_success(res, 200, "Sukses Delete User", query)
+    } catch (error) {
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                
+    }
+}
+
+async function editAdmin(req, res) {
+    try {
+        let id = req.query.id;
+        let getByid = await User.findById({ _id: id });
+        console.log(id)
+        let model = {
+            name: req.body.name ? req.body.name : getByid.name,
+            email: req.body.email ? req.body.email : getByid.email,
+            password: bcrypt.hashSync(req.body.password, 10) ? bcrypt.hashSync(req.body.password): getByid.password,
+            role: req.body.role ? req.body.role: getByid.role
+        }
+
+        let query = await User.update({ _id: id }, model)
+
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        activity("Edit Admin",user_id)
+
+        return response.wrapper_success(res, 200, "Sukses Edit Admin", model)
+    } catch (error) {
+        console.log(error)
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
     }
 }

@@ -28,6 +28,9 @@ app.use('/api/import', require('./modules/import-data/import.controller'));
 app.use('/api/peraturan', require('./modules/peraturan/peraturan.controller'));
 app.use('/api/point', require('./modules/point/point.controller'));
 app.use('/api/lapor', require('./modules/lapor/lapor.controller'));
+app.use('/api/kelas', require('./modules/kelas/kelas.controller'));
+app.use('/api/dashboard', require('./modules/dashboard/dashboard.controller'));
+app.use('/api/activity', require('./modules/activity/activity.controller'));
 
 // global error handler
 app.use(errorHandler);

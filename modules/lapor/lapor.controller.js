@@ -11,6 +11,8 @@ const response = require('../../helpers/wrapper');
 const uploadBase64 = require('../../helpers/uploadBase64');
 const uploads = require('../../helpers/uploadBase64');
 const minio = require('../../helpers/minioSdk');
+const dateFormat = require('../../helpers/dateFormat');
+const activity = require('../../helpers/insertActivity')
 
 const User = db.User;
 const Point = db.Point;
@@ -20,6 +22,7 @@ const Aktivitas = db.Aktivitas;
 // routes
 router.post('/upload', uploadPelanggaran);
 router.get('/all', getAllPelanggaran);
+router.get('/me', getAllPelanggaran);
 router.get('/', getPelanggaranByid);
 router.delete('/delete', deleteAllLaporan);
 module.exports = router;
@@ -67,10 +70,6 @@ async function uploadPelanggaran(req,res) {
         const minioEndpoint = "54.210.29.24"
         const port = 9000;
         let resultImage = `${minioEndpoint}:${port}/${bucket}/${uploadPhoto}`
-      
-        // let image = await uploadBase64(req.body.image);
-        // image.replace(/\./g,' ')
-        // let path = "localhost:3000/buku-saku-online-api"
 
         let model = {
             user: {
@@ -88,9 +87,32 @@ async function uploadPelanggaran(req,res) {
                 nama: getPelapor[0].name
             },
             image: resultImage,
+            createdDate: dateFormat(Date.now())
        }    
+       
+       let userModel = {
+            name: getUser[0].name,
+            email: getUser[0].email,
+            class: getUser[0].class,
+            nis: getUser[0].nis,
+            point: getUser[0].point + getPelanggaran[0].point,
+            password : getUser[0].password,
+            role: getUser[0].role
+        }
+       
+       await User.update({ "nis": req.body.nis }, userModel)
        let lapor = new Lapor(model)
        let query = await lapor.save();
+       
+       let activityModel = {
+           user_id: getPelapor[0]._id,
+           username: getPelapor[0].name,
+           activity: "Upload Pelanggaran",
+           created_at: dateFormat(Date.now())
+       }
+
+       let activity = new Aktivitas(activityModel);
+       await activity.save()
 
        return response.wrapper_success(res, 200, 'Succes Upload Pelanggaran', query )
     } catch (error) {
@@ -103,7 +125,30 @@ async function uploadPelanggaran(req,res) {
 async function getAllPelanggaran(req,res) {
     try {
         let query = await Lapor.find();
+
+        // Activity
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+ 
+        activity("Get All Pelanggaran",user_id)
         return response.wrapper_success(res, 200, "Sukses Get Pelanggaran", query)
+    } catch (error) {
+        console.log(error)
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
+    }   
+}
+
+async function getAllPelanggaranbyUser(req,res) {
+    try {
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+        
+        let query = await Lapor.find({ 'user.id': user_id });
+        return response.wrapper_success(res, 200, "Sukses Get Aktivitas User", query)
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
     }   
@@ -116,6 +161,14 @@ async function getPelanggaranByid(req, res) {
         }
     
         let query = await Lapor.findById(model._id);
+
+                // Activity
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+ 
+        activity("Get Pelanggaran By Id",user_id)
         return response.wrapper_success(res, 200, "Sukses Get Peraturan Peraturan by id", query)
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                 
@@ -125,6 +178,14 @@ async function getPelanggaranByid(req, res) {
 async function deleteAllLaporan(req,res) {
     try {
         let query = await Lapor.remove();
+
+                // Activity
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+ 
+        activity("Delete All Laporan",user_id)
         return response.wrapper_success(res, 200, "Sukses Hapus All Peraturan", query)
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                         

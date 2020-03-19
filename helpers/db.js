@@ -9,5 +9,6 @@ module.exports = {
     Aturan: require('../modules/import-data/import.model'),
     Point: require('../modules/import-data/point.model'),
     Lapor: require('../modules/lapor/lapor.model'),
-    Aktivitas: require('../modules/lapor/aktivitas.model')
+    Aktivitas: require('../modules/activity/aktivitas.model'),
+    Kelas: require('../modules/kelas/kelas.model')
 };

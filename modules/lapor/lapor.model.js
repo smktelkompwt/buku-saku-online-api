@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema({
     user: {
-        user_id: { type: String },
-        nis: { type: Number },
+        id: { type: String },
+        nis: { type: String },
         nama: { type: String },
         kelas: { type: String },
     },
@@ -17,7 +17,7 @@ const schema = new Schema({
         nama: { type: String },
     },
     image: { type: String },
-    createdDate: { type: Date, default: Date.now }
+    createdDate: { type: String }
 });
 
 schema.set('toJSON', { virtuals: true });

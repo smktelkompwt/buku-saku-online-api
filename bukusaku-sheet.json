@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "bukusaku-sheet",
+  "private_key_id": "2f9d8df9562dc7bd9879cb610139b466115f210f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCONARFTR0gPbb2\n9DVGuFtf1YmWfMD/lF8LacoVwLNINrjUSUWsd+KwTs7Y9XtfPsjdE4RD2Q3FEP/+\nXIUAOD8UORRjXKhzBasD4STIJC+fTf/mRCNvxyS47pTOymaiowFM6/KHvy0w+1Vb\ns+Xh2YzH1j7zkzBekNLyLytVTWjLyGdWQmEaob1nvdUev8zGr8ajKhxSNEs6tISh\n9qRiIV49iahUHdnn3TEwt/CS9p0/lu1oqED7gBDiRUBw2AJLA3O/gdHl71U3thbD\n0/ZW8S62YLIXG2h34CFL8ipgIQ2v81oMdOaeIRS4HVcmeleGdTS9XFMV51uap00L\narGTd/1dAgMBAAECggEABFsAG6+vEGSjg0pBv+IRdmZGQEEFvkfcM2LKaQ+NmwAf\nrOzdM/LS4CVbY4mW499t7CUjyQ1pK3VUvR5punLk+uiwQOALjsS7kxmLWvZbLEA8\n2F/GgBVzs/0muw2Ek3J2FAkqbmr2Ga9EOYdRWrE80ezneuYx6V7HmNn5NBpakKdA\n7PBlpRZf1bgp2+3KflscpsPHygD24NsF6Mz8hfI5dpANUzLztgI6r/1oL+3QMOwg\n9x9ubvz534mweEL/+UgnH11uNJe67HCDwt821QdFCbrRvpZWyJFrA44vqvUtAcUu\nopGmdjtBqHBQGXoU06l7t/Gy9eGZfmvfqle2uTQnNwKBgQDB0IH2Fqae7hTpk3eE\nWMVouFWwtcrugZuIhlTXJP7CTw9MsYsEghchlAMeKRC4R6U/hcWpHZ+rDCDJZPFc\nh6/+B/X2ue/bi1mpRT1gfqssb80rfrutSoIvxJueiwmDaN/EMJmUi6TvaCQNCeyI\nlXW13W19sLnmtK99jxNbXhDT4wKBgQC71EWQ67iu+P2RRrAbHEEj8W6XBpcI2pNB\nsA6mPA7NQ3cLKsIB37RLwUVsaDBifwasSRd5f40CBrZdD6rHPj2JPYB1VSYXNTAc\nAGvmJdo72Ebx0Ag4gSTpj6c/QUymZ+fASHRIE2niWDqe3Aljif/4T0FsoM4W6lv9\nkxiRj5ktvwKBgQCLU2CZj17oES5nWuMn+MiwpxKynXzsR6+PTUHgB3A8LqlI8LiG\n3R3TvZsgK1UhpB9essOM9wa451cKb84yPjh93Ssr2i5bHKmvzV5555UVtKlBAzHX\nOSCtRiC4sCp+lP2HA4jkCB7hG3QPC3tGFGsx+aOkH08EUg91q0y2+cAPEQKBgQCg\nRoNSJYMDc55UACC4EYUYWaVHpCzvNixf6g6mFSuARihn1AWWucBMwFAwMDvRYJle\nHES2vXuilf25LWxJ9jdmS5+4/36wYQd7bXSk//nYBTaMkzrglHrd/mH1nQ/+Ez3z\nmx/2fPJmXWkwM4yjbpeI2IB4ZENX1IXIvGNDmmhYWwKBgQCjBjpVX7CEWWXqbRog\nR0a94DE4VYSX0jwYUarY7S3PuDUErsXLAHHpFanYBtkiUhTk8EMfGC3uvbtNMhRO\nf4qXceWHTp6ozyZ+Go2IX4zb8EMetPctdWHtP9XY30c6RaAKYlf3ijLC0LsZxr/f\nw0xqgG+LTPMObCZcAKx0itcO+Q==\n-----END PRIVATE KEY-----\n",
+  "client_email": "adminbukusaku@bukusaku-sheet.iam.gserviceaccount.com",
+  "client_id": "102503995808749527445",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/adminbukusaku%40bukusaku-sheet.iam.gserviceaccount.com"
+}

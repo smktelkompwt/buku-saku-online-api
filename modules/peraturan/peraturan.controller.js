@@ -15,7 +15,11 @@ const Aturan = db.Aturan;
 router.get('/all', getAll);
 router.get('/', getById);
 router.delete('/delete', _delete);
-router.get('/pasal', getPasal)
+router.get('/pasal', getPasal);
+router.put('/edit/', editBab);
+router.put('edit/pasal', editPasal);
+router.delete('delete/', _deleteBab);
+router.delete('delete/pasal', _deletePasal);
 
 module.exports = router;
 
@@ -102,5 +106,114 @@ async function getPasal(req, res) {
     } catch (error) {
         console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                 
+    }
+}
+
+async function editBab(req, res) {
+    try {
+        let id = req.query.id;
+        let getByid = await Aturan.findById({ _id: id });
+
+        let model = {
+            bab: req.body.bab ? req.body.bab : getByid.bab
+        }
+
+        let query = await Aturan.updateOne({ _id: id }, model)
+
+        let token = req.headers.authorization.replace('Bearer ', '');
+
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        activity("Edit Bab", user_id)
+        console.log(id);
+
+        return response.wrapper_success(res, 200, "Sukses Edit Peraturan Peraturan by id", query)
+    } catch (error) {
+        console.log(error)
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
+    }
+}
+
+async function editPasal(req, res) {
+    try {
+        let model = {
+            _id: req.query.id,
+            idPasal: req.query.idPasal
+        }
+
+        let query = await Aturan.findOne({ _id: model._id }, { pasal: { $elemMatch: { _id: model.idPasal } } });
+        let data = query.pasal[0];
+
+        let id = {
+            _id: data._id
+        }
+
+        let newModel = {
+            title: req.body.title ? req.body.title : id.title
+        }
+
+        let newQuery = await Aturan.updateOne({ _id: id._id }, newModel);
+
+        // Activity
+        let token = req.headers.authorization.replace('Bearer ', '');
+
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        // console.log(data);
+
+        // activity("Edit Pasal", user_id)
+        console.log(newModel);
+        return response.wrapper_success(res, 200, "Sukses Edit Peraturan Peraturan by id", newQuery);
+    } catch (error) {
+        console.log(error)
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
+    }
+}
+
+async function _deleteBab(req, res) {
+    try {
+        let query = await Aturan.findByIdAndRemove({ _id: req.query.id });
+
+        let token = req.headers.authorization.replace('Bearer ', '');
+
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        activity("Delete Bab", user_id)
+        return response.wrapper_success(res, 200, "Sukses Hapus Bab Peraturan", query)
+    } catch (error) {
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
+    }
+
+}
+
+async function _deletePasal(req, res) {
+    try {
+        let model = {
+            id: req.query.id,
+            idPasal: req.query.idPasal
+        }
+
+        let query = await Aturan.findOne({ _id: model.id }, { pasal: { $elemMatch: { _id: model.idPasal } } });
+        let data = query.pasal[0];
+
+        let newModel = {
+            _id: data.pasal
+        }
+
+        let newQuery = await Aturan.remove({ _id: newModel._id });
+
+        let token = req.headers.authorization.replace('Bearer ', '');
+
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        activity("Delete Pasal", user_id)
+        return response.wrapper_success(res, 200, "Sukses Hapus Pasal Peraturan", newQuery)
+    } catch (error) {
+        console.log(error);
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
     }
 }

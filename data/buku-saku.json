@@ -1,94 +1,94 @@
 [
     {
-      "bab": "Bab I Keputusan Umum",
-      "pasal": [
-        {
-          "title": "Pasal 1 Definisi Istilah",
-          "desc": [
-                {
-                    "id": 1,
-                    "descPasal": "Tata Tertib Peserta didik SMK Telkom Purwokerto adalah peraturan-peraturan yang telah ditetapkan oleh Sekolah yang harus ditaati dan dilaksanakan oleh seluruh peserta didik SMK Telkom Purwokerto."
-                },
-                {
-                    "id": 2,
-                    "descPasal": "Sekolah adalah Sekolah Menengah Kejuruan (SMK) Telkom Purwokerto yang beralamat di Jl. DI Panjaitan 128 Purwokerto."
-                },
-                {
-                    "id": 3,
-                    "descPasal": "Tim BP/BK adalah Guru yang mempunyai tugas, tanggung jawab, wewenang, dan hak secara penuh dalam kegiatan bimbingan, penyuluhan,serta konseling yang bersifat preventif dan kuratif terhadap peserta didik."
-                },
-                {
-                    "id": 4,
-                    "descPasal": "Tim TS Character adalah Guru yang ditunjuk yang mempunyai tugas, tanggung jawab, wewenang, dan hak secara penuh dalam kegiatan bimbingan, penyuluhan tentang program karakater terhadap peserta didik."
-                },
-                {
-                    "id": 5,
-                    "descPasal": "Peserta Didik adalah seseorang yang terdaftar secara administratif untuk menempuh pendidikan di SMK Telkom Purwokerto."
-                },
-                {
-                    "id": 6,
-                    "descPasal": "Guru Piket adalah guru yang mempunyai tugas, wewenang, dan tanggung jawab  untuk menjaga, memantau,serta memastikan kelancaran pelaksanaan Kegiatan Belajar Mengajar (KBM)."
-                },
-                {
-                    "id": 7,
-                    "descPasal": "Waktu Istirahat adalah waktu yang ditentukan sesuai jadwal oleh sekolah kepada peserta didik dan guru untuk beristirahat serta menyegarkan pikiran."
-                },
-                {
-                    "id": 8,
-                    "descPasal": "Pakaian Seragam adalah pakaian yang wajib dipakai peserta didik selama mengikuti KBM baik dilaksanakan di sekolah maupun di lokasi lain sesuai dengan hari yang telah ditentukan sekolah."
-                },
-                {
-                    "id": 9,
-                    "descPasal": "Atribut adalah kelengkapan yang harus dipakai oleh setiap peserta didik yang telah ditentukan oleh sekolah."
-                },
-                {
-                    "id": 10,
-                    "descPasal": "Kredit Poin Pelanggaran Peserta didik adalah angka/skor yang diberikan sebagai akibat dari pelanggaran peserta didik."
-                },
-                {
-                    "id": 11,
-                    "descPasal": "Debet Poin Prestasi Peserta didik adalah angka/skor yang diberikan kepada peserta didik sebagai reward atas prestasi yang diraih untuk mengurangi kredit poin pelanggaran."
-                },
-                {
-                    "id": 12,
-                    "descPasal": "Wali Kelas adalah guru yang mempunyai tugas, tanggung jawab, dan wewenang untuk membina peserta didik dalam satu kelas."
-                },
-                {
-                    "id": 13,
-                    "descPasal": "Skorsing adalah sanksi yang diberikan kepada peserta didik untuk tidak mengikuti KBM dalam waktu yang ditentukan sesuai dengan kredit poin pelanggaran yang telah diperoleh."
-                },
-                {
-                    "id": 14,
-                    "descPasal": "Sanksi adalah hukuman yang diberikan kepada peserta didik yang melakukan pelanggaran tata tertib."
-                },
-                {
-                    "id": 15,
-                    "descPasal": "Sanksi langsung adalah sanksi yang diberikan oleh pada saat terjadi pelanggaran."
-                },
-                {
-                    "id": 16,
-                    "descPasal": "Sidang Kasus adalah kegiatan untuk membahas peserta didik yang bermasalah dalam suatu pertemuan yang dihadiri oleh Kepala Sekolah, Waka Kesiswaan, Tim BP/BK dan TS Character, dan Wali Kelas yang bersangkutan."
-                }
-            ]
-        },
-        {
-            "title": "Pasal 2 Landasan, Maksud dan Tujuan",
-            "desc": [
-                {
-                    "id" : 1,
-                    "descPasal": "Landasan tata tertib ini adalah: Pancasila, Undang-Undang Dasar 1945 dan Undang-Undang Republik Indonesia No. 20 tahun 2003 tentang Sistem Pendidikan Nasional."
-                },
-                {
-                    "id": 2,
-                    "descPasal": "Maksud ditetapkan keputusan ini adalah sebagai penyempurnaan Tata Tertib Nomor. SMKTEL.588/SIS000/KS-00/07/2015 Tanggal 09 Juli 2015 tentang Tata Tertib Peserta Didik SMK Telkom Purwokerto."
-                },
-                {
-                    "id": 3,
-                    "descPasal": "Tujuan ditetapkan keputusan ini adalah sebagai pedoman bagi pembinaan kedisiplinan peserta didik."
-                }
-            ]
-        }
-      ]
+        "bab": "Bab I Keputusan Umum",
+        "pasal": [
+            {
+                "title": "Pasal 1 Definisi Istilah",
+                "desc": [
+                    {
+                        "id": 1,
+                        "descPasal": "Tata Tertib Peserta didik SMK Telkom Purwokerto adalah peraturan-peraturan yang telah ditetapkan oleh Sekolah yang harus ditaati dan dilaksanakan oleh seluruh peserta didik SMK Telkom Purwokerto."
+                    },
+                    {
+                        "id": 2,
+                        "descPasal": "Sekolah adalah Sekolah Menengah Kejuruan (SMK) Telkom Purwokerto yang beralamat di Jl. DI Panjaitan 128 Purwokerto."
+                    },
+                    {
+                        "id": 3,
+                        "descPasal": "Tim BP/BK adalah Guru yang mempunyai tugas, tanggung jawab, wewenang, dan hak secara penuh dalam kegiatan bimbingan, penyuluhan,serta konseling yang bersifat preventif dan kuratif terhadap peserta didik."
+                    },
+                    {
+                        "id": 4,
+                        "descPasal": "Tim TS Character adalah Guru yang ditunjuk yang mempunyai tugas, tanggung jawab, wewenang, dan hak secara penuh dalam kegiatan bimbingan, penyuluhan tentang program karakater terhadap peserta didik."
+                    },
+                    {
+                        "id": 5,
+                        "descPasal": "Peserta Didik adalah seseorang yang terdaftar secara administratif untuk menempuh pendidikan di SMK Telkom Purwokerto."
+                    },
+                    {
+                        "id": 6,
+                        "descPasal": "Guru Piket adalah guru yang mempunyai tugas, wewenang, dan tanggung jawab  untuk menjaga, memantau,serta memastikan kelancaran pelaksanaan Kegiatan Belajar Mengajar (KBM)."
+                    },
+                    {
+                        "id": 7,
+                        "descPasal": "Waktu Istirahat adalah waktu yang ditentukan sesuai jadwal oleh sekolah kepada peserta didik dan guru untuk beristirahat serta menyegarkan pikiran."
+                    },
+                    {
+                        "id": 8,
+                        "descPasal": "Pakaian Seragam adalah pakaian yang wajib dipakai peserta didik selama mengikuti KBM baik dilaksanakan di sekolah maupun di lokasi lain sesuai dengan hari yang telah ditentukan sekolah."
+                    },
+                    {
+                        "id": 9,
+                        "descPasal": "Atribut adalah kelengkapan yang harus dipakai oleh setiap peserta didik yang telah ditentukan oleh sekolah."
+                    },
+                    {
+                        "id": 10,
+                        "descPasal": "Kredit Poin Pelanggaran Peserta didik adalah angka/skor yang diberikan sebagai akibat dari pelanggaran peserta didik."
+                    },
+                    {
+                        "id": 11,
+                        "descPasal": "Debet Poin Prestasi Peserta didik adalah angka/skor yang diberikan kepada peserta didik sebagai reward atas prestasi yang diraih untuk mengurangi kredit poin pelanggaran."
+                    },
+                    {
+                        "id": 12,
+                        "descPasal": "Wali Kelas adalah guru yang mempunyai tugas, tanggung jawab, dan wewenang untuk membina peserta didik dalam satu kelas."
+                    },
+                    {
+                        "id": 13,
+                        "descPasal": "Skorsing adalah sanksi yang diberikan kepada peserta didik untuk tidak mengikuti KBM dalam waktu yang ditentukan sesuai dengan kredit poin pelanggaran yang telah diperoleh."
+                    },
+                    {
+                        "id": 14,
+                        "descPasal": "Sanksi adalah hukuman yang diberikan kepada peserta didik yang melakukan pelanggaran tata tertib."
+                    },
+                    {
+                        "id": 15,
+                        "descPasal": "Sanksi langsung adalah sanksi yang diberikan oleh pada saat terjadi pelanggaran."
+                    },
+                    {
+                        "id": 16,
+                        "descPasal": "Sidang Kasus adalah kegiatan untuk membahas peserta didik yang bermasalah dalam suatu pertemuan yang dihadiri oleh Kepala Sekolah, Waka Kesiswaan, Tim BP/BK dan TS Character, dan Wali Kelas yang bersangkutan."
+                    }
+                ]
+            },
+            {
+                "title": "Pasal 2 Landasan, Maksud dan Tujuan",
+                "desc": [
+                    {
+                        "id": 1,
+                        "descPasal": "Landasan tata tertib ini adalah: Pancasila, Undang-Undang Dasar 1945 dan Undang-Undang Republik Indonesia No. 20 tahun 2003 tentang Sistem Pendidikan Nasional."
+                    },
+                    {
+                        "id": 2,
+                        "descPasal": "Maksud ditetapkan keputusan ini adalah sebagai penyempurnaan Tata Tertib Nomor. SMKTEL.588/SIS000/KS-00/07/2015 Tanggal 09 Juli 2015 tentang Tata Tertib Peserta Didik SMK Telkom Purwokerto."
+                    },
+                    {
+                        "id": 3,
+                        "descPasal": "Tujuan ditetapkan keputusan ini adalah sebagai pedoman bagi pembinaan kedisiplinan peserta didik."
+                    }
+                ]
+            }
+        ]
     },
     {
         "bab": "Bab II Tata Tertib",
@@ -343,6 +343,198 @@
                     {
                         "id": 6,
                         "descPasal": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "bab": "Bab III LAIN-LAIN",
+        "pasal": [
+            {
+                "title": "Pasal 9 Pelaksanaan Ibadah",
+                "desc": [
+                    {
+                        "id": 1,
+                        "descPasal": "Peserta didik wajib mengikuti kegiatan perayaan hari-hari besar keagamaan yang dilaksanakan atau diadakan sekolah sesuai dengan agamanya."
+                    },
+                    {
+                        "id": 2,
+                        "descPasal": "Bagi peserta didik muslim wajib menjalankan ibadah puasa pada bulan Ramadhan."
+                    },
+                    {
+                        "id": 3,
+                        "descPasal": "Pada hari Jumat selama bulan suci Ramadhan, peserta didik muslim wajib memakai busana muslim, sedangkan peserta didik non muslim memakai pakaian bebas, rapi dan sopan."
+                    },
+                    {
+                        "id": 4,
+                        "descPasal": "Pada bulan suci Ramadhan, peserta didik yang tidak berpuasa tidak diperkenankan makan atau minum ditempat terbuka."
+                    }
+                ]
+            },
+            {
+                "title": "Pasal 10 Memperingati Hari Besar Nasional dan Upacara Bendera",
+                "desc": [
+                    {
+                        "id": 1,
+                        "descPasal": "Peserta didik wajib mengikuti kegiatan hari besar nasional yang dilaksanakan sekolah."
+                    },
+                    {
+                        "id": 2,
+                        "descPasal": "Peserta didik wajib mengenakan seragam dan atribut yang ditentukan pada hari tersebut."
+                    },
+                    {
+                        "id": 3,
+                        "descPasal": "Peserta didik wajib mengikuti upacara bendera yang diselenggarakan oleh sekolah dengan tertib."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "bab": "BAB IV PELANGGARAN DAN POIN",
+        "pasal": [
+            {
+                "title": "Pasal 11 Ketentuan Umum",
+                "desc": [
+                    {
+                        "id": 1,
+                        "descPasal": "Setiap peserta didik yang melanggar tata tertib diberikan sanksi langsung dan kredit poin berdasarkan jenis pelanggarannya."
+                    },
+                    {
+                        "id": 2,
+                        "descPasal": "Semakin besar kredit poin yang diberikan, menunjukkan semakin besar bobot pelanggaran yang dilakukan peserta didik."
+                    },
+                    {
+                        "id": 3,
+                        "descPasal": "Pelanggaran yang dilakukan lebih dari satu kali, kredit poinnya diakumulasikan dengan pelanggaran sebelumnya dengan jenis sanksi sesuai kredit poin akumulasi."
+                    },
+                    {
+                        "id": 4,
+                        "descPasal": "4).Kredit poin pelanggaran diakumulasikan selama 3 tahun, dengan ketentuan sebagai berikut :
+                        a).Batas maksimum kredit poin yang masih dapat ditoleransi untuk peserta didik kelas X adalah 99 poin.
+                        b).Batas maksimum kredit poin yang masih dapat ditoleransi untuk peserta didik kelas XI adalah 149 poin (sudah termasuk akumulasi poin dari kelas X).
+                        c).Batas maksimum kredit poin yang masih dapat ditoleransi untuk peserta didik kelas XII adalah 199 poin (sudah termasuk akumulasi poin dari kelas X dan kelas XI)."
+                    },
+                    {
+                        "id": 5,
+                        "descPasal": "Peserta didik yang telah mencapai kredit poin lebih besar dari batas maksimum kredit poin seperti diatur dalam ayat 4) diatas, dikeluarkan dari sekolah."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "bab": "BAB V DEBET POIN PRESTASI PESERTA DIDIK",
+        "pasal": [
+            {
+                "title": "Pasal 15 Ketentuan Umum",
+                "desc": [
+                    {
+                        "id": 1,
+                        "descPasal": "Peserta didik yang berprestasi mendapat debet poin sesuai dengan tingkat kejuaraannya dan dapat digunakan untuk mengurangi kredit poin pelanggaran yang sudah ada."
+                    },
+                    {
+                        "id": 2,
+                        "descPasal": "Peserta didik tidak dapat menyimpan debet poin."
+                    },
+                    {
+                        "id": 3,
+                        "descPasal": "3).Mekanisme Penanganan dan pemberian debet poin prestasi :
+                        a.Peserta didik dapat langsung menyerahkan bukti prestasi atau dapat didampingi oleh guru pembina atau wali kelas atau pelatih kepada Tim BP/BK.
+                        Tim BP/BK mencatat poin prestasi itu pada Kartu Kendali Poin Peserta didik dan pada Buku Saku Tata tertib milik peserta didik bersangkutan."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "bab": "Bab VI PENUTUP",
+        "pasal": [
+            {
+                "title": "Pasal 17 Pengawasan, Pemberian Sanksi dan Pembinaan",
+                "desc": [
+                    {
+                        "id": 1,
+                        "descPasal": "Pengawasan tata tertib peserta didik dilakukan oleh seluruh guru dan karyawan di sekolah."
+                    },
+                    {
+                        "id": 2,
+                        "descPasal": "Penambahan kredit poin pelanggaran peserta didik dilakukan oleh seluruh guru dan karyawan di sekolah."
+                    },
+                    {
+                        "id": 3,
+                        "descPasal": "Pemberian sanksi langsung oleh seluruh guru dan karyawan dapat berupa: 
+                        a.Penyitaan barang milik peserta didik, dan atau
+                        b.Peserta didik melakukan kegiatan sosial, dan atau
+                        c.Peserta didik dipotong rambut dan kuku, dan atau
+                        d.Pemanggilan orang tua peserta didik untuk kasus khusus, dan atau
+                        e.Peserta didik mengganti/memperbaiki fasilitas sekolah yang dirusak, dan atau
+                        f.Peserta didik diberi tugas tambahan. "
+                    },
+                    {
+                        "id": 4,
+                        "descPasal": "Mekanisme penanganan pemberian kredit poin pelanggaran :
+                        a.Setiap guru berhak menangani peserta didik yang terbukti atau diindikasikan melakukan pelanggaran, lalu memprosesnya hingga peserta didik tersebut mengakui pelanggaran. Setelah itu guru terus menindaklanjuti dengan mencatat poin pelanggaran pada buku saku peserta didik yang bersangkutan. Kemudian buku saku peserta didik tersebut diserahkan kepada Tim BP/BK.
+                        b.Tim BP/BK menindaklanjuti dengan menginput poin pelanggaran dan memberikan konseling terhadap peserta didik bersangkutan."
+                    },
+                    {
+                        "id": 5,
+                        "descPasal": "Keputusan tertinggi berkenaan dengan pemberian sanksi adalah keputusan dalam Sidang Kasus."
+                    },
+                    {
+                        "id": 6,
+                        "descPasal": "Bagi peserta didik yang melakukan pelanggaran berat terhadap Tata Tertib Peserta Didik maupun norma masyarakat, maka kepadanya langsung diberikan sanksi berat yang diputuskan dalam Sidang Kasus, tanpa harus melalui Surat Pernyataan/Peringatan terlebih dahulu."
+                    },
+                    {
+                        "id": 7,
+                        "descPasal": "Pelanggaran berat yang dimaksud pada butir 6) di atas adalah jenis pelanggaran yang menyebabkan akumulasi kredit poin pelanggaran peserta didik melebihi batas maksimum yang masih dapat ditoleransi untuk masing-masing kelas, sesuai yang telah diatur dalam pasal 10 butir 4) dalam keputusan ini."
+                    },
+                    {
+                        "id": 8,
+                        "descPasal": "Pembinaan terhadap peserta didik yang telah melakukan pelanggaran ditangani oleh Wali Kelas dan tim BP/BK."
+                    }
+                ]
+            },
+            {
+                "title": "Pasal 18 Aturan Pemberlakuan",
+                "desc": [
+                    {
+                        "id": 1,
+                        "descPasal": "Keputusan ini berlaku terhitung mulai tanggal ditetapkan."
+                    },
+                    {
+                        "id": 2,
+                        "descPasal": "Dengan diberlakukannya keputusan ini, maka Tata tertib peserta didik Nomor SMKTEL.588/SIS000/KS-00/07/2015 Tanggal 09 Juli 2015 dinyatakan tidak berlaku lagi."
+                    }
+                ]
+            },
+            {
+                "title": "Pasal 19 Aturan Tambahan",
+                "desc": [
+                    {
+                        "id": 1,
+                        "descPasal": "Buku Saku ini wajib dibawa peserta didik ketika mengikuti kegiatan sekolah."
+                    },
+                    {
+                        "id": 2,
+                        "descPasal": "Buku Saku ini wajib dirawat dengan baik dan dijaga, jangan sampai kotor/rusak atau hilang."
+                    },
+                    {
+                        "id": 3,
+                        "descPasal": "Barang siapa menghilangkan buku saku ini secara sengaja ataupun tidak sengaja dikenakan denda sebesar Rp. 100.000,00 (seratus ribu rupiah) dan mendapatkan poin pelanggaran sesuai dengan ketentuan Tata Tertib Peserta didik."
+                    },
+                    {
+                        "id": 4,
+                        "descPasal": "Bagi peserta didik yang melakukan tindak pencurian, maka peserta didik yang bersangkutan diberikan sanksi sesuai dengan ketentuan Tata Tertib Peserta Didik dan harus mengembalikan barang hasil curian dan atau mengganti uang senilai barang tersebut."
+                    },
+                    {
+                        "id": 5,
+                        "descPasal": "Buku Saku ini wajib dikembalikan ke sekolah jika peserta didik yang bersangkutan pindah sekolah atau dikeluarkan atau telah lulus dari SMK Telkom Purwokerto."
+                    },
+                    {
+                        "id": 6,
+                        "descPasal": "Hal-hal yang belum jelas diatur dalam keputusan ini, akan ditentukan dan diputuskan dalam rapat Tim BP/BK dan TS Character."
                     }
                 ]
             }

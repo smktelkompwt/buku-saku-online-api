@@ -80,7 +80,8 @@ async function uploadPelanggaran(req,res) {
             },
             pelanggaran: {
                 kategori: getPelanggaran[0].jenis_pelanggaran,
-                point: getPelanggaran[0].point
+                point: getPelanggaran[0].point,
+                kode: getPelanggaran[0].kode
             },
             pelapor: {
                 id: getPelapor[0]._id,

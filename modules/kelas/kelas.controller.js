@@ -17,6 +17,8 @@ router.get('/all', getAll);
 router.post('/create', create);
 router.get('/', getUserInClass);
 router.delete('/delete', _delete);
+router.delete('/remove', deleteKelasbyId);
+router.put('/edit', editKelas)
 
 module.exports = router;
 
@@ -108,4 +110,48 @@ async function _delete(req, res) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                         
     }
    
+}
+
+async function deleteKelasbyId(req,res) {
+    try {
+        let query = await Kelas.findByIdAndRemove({ _id: req.query.id });
+
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        activity("Delete Kelas",user_id)
+
+        return response.wrapper_success(res, 200, "Sukses Delete Kelas", query)
+    } catch (error) {
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                
+    }
+}
+
+async function editKelas(req, res) {
+    try {
+        let id = req.query.id;
+        let getByid = await Kelas.findById({ _id: id });
+        console.log(getByid)
+        let model = {
+            kelas: req.body.kelas ? req.body.kelas : getByid.kelas,
+            wali_kelas: req.body.wali_kelas ? req.body.wali_kelas : getByid.wali_kelas,
+            jurusan: req.body.jurusan ? req.body.jurusan : getByid.jurusan,
+        }
+
+        let query = await Kelas.update({ _id: id }, model)
+
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        activity("Edit Kelas",user_id)
+
+        return response.wrapper_success(res, 200, "Sukses Edit Kelas", query)
+    } catch (error) {
+        console.log(error)
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
+    }
 }

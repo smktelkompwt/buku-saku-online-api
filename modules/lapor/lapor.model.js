@@ -10,7 +10,8 @@ const schema = new Schema({
     },
     pelanggaran: {
         kategori: { type: String },
-        point: { type: Number }
+        point: { type: Number },
+        kode: { type: String }
     },
     pelapor: {
         id: { type: String },

@@ -27,7 +27,8 @@ router.get('/get/', getUserbyId);
 router.put('/edit', editUser);
 router.get('/me', getUserbyToken)
 router.delete('/remove', deleteUserbyId);
-router.put('/admin/edit', editAdmin)
+router.put('/admin/edit', editAdmin);
+router.get('/search', searchUserbyNis);
 
 module.exports = router;
 
@@ -243,6 +244,9 @@ async function getUserbyToken(req, res) {
         let user_id = decode.sub;
 
         let query = await User.find({ '_id': user_id });
+        if(query.length < 1) {
+            return response.wrapper_error(res, httpError.NOT_FOUND, 'User Not Found')        
+        }
 
         activity("Get User by Token",user_id)
         return response.wrapper_success(res, 200, "Sukses Get User", query)
@@ -294,4 +298,23 @@ async function editAdmin(req, res) {
         console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
     }
+}
+
+async function searchUserbyNis(req,res) {
+   try {
+        let nis = req.query.nis;
+
+        let query = await User.find({ 'nis': nis });
+
+        let token = req.headers.authorization.replace('Bearer ','');
+        
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        activity("Search User",user_id)
+
+        return response.wrapper_success(res, 200, "Sukses Get User", query)
+   } catch (error) {
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')       
+   }
 }

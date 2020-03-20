@@ -48,7 +48,7 @@ async function create(req,res) {
 
         let checkIfExist = await Kelas.find({ 'kelas': model.kelas })
         console.log(checkIfExist)
-        if(checkIfExist.length > 1) {
+        if(checkIfExist.length > 0) {
             return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Class is already taken')
         }
 

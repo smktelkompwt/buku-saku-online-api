@@ -46,6 +46,11 @@ async function create(req,res) {
             jurusan: req.body.jurusan
         }
 
+        let checkIfExist = await Kelas.find({ 'kelas': model.kelas })
+        if(checkIfExist) {
+            return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Class is already taken')
+        }
+
         let kelas = new Kelas(model);
         let query = await kelas.save();
 

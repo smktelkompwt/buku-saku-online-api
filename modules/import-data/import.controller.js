@@ -79,7 +79,7 @@ async function importAllUser(req,res) {
                 jurusan: data.Jurusan,
                 point: 0,
                 email: `${data.Nis.replace(/\s/g, "")}@student.smktelkom-pwt.sch.id`,
-                password: bcrypt.hashSync(data.Nis),
+                password: bcrypt.hashSync(data.Nis.replace(/\s/g, ""), 10),
                 role: 'user'
             }
             result.push(model)

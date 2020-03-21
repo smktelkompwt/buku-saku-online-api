@@ -15,6 +15,7 @@ const Point = db.Point;
 router.get('/all', getAll);
 router.get('/', getById);
 router.delete('/delete', _delete);
+router.get('/kategori', getKategoryPoint);
 
 module.exports = router;
 
@@ -74,4 +75,23 @@ async function _delete(req, res) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                         
     }
    
+}
+
+async function getKategoryPoint(req,res) {
+    try {
+        let kategori = req.query.kategori;
+
+        let query = await Point.find({ kategori: kategori })
+        
+        // Activity
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+ 
+        activity("Get Kategori Point",user_id)
+        return response.wrapper_success(res, 200, "Sukses Get Kategori", query)
+    } catch (error) {
+        
+    }
 }

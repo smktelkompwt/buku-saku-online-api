@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const schema = new Schema({
     kode: { type: String },
     jenis_pelanggaran: { type: String },
-    point: { type: Number }
+    point: { type: Number },
+    kategori: { type: String }
 });
 
 schema.set('toJSON', { virtuals: true });

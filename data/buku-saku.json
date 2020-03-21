@@ -142,7 +142,7 @@
                     },
                     {
                         "id": 12,
-                        "descPasal": "4)Pelaksanaan kegiatan di luar waktu KBM wajib seizin guru pembimbing dan mengisi daftar penggunaan ruang di satpam."
+                        "descPasal": "Pelaksanaan kegiatan di luar waktu KBM wajib seizin guru pembimbing dan mengisi daftar penggunaan ruang di satpam."
                     }
                 ]
             },
@@ -342,7 +342,47 @@
                     },
                     {
                         "id": 6,
-                        "descPasal": ""
+                        "descPasal": "Peserta didik dilarang menyalahgunakan uang yang seharusnya untuk pembayaran administrasi sekolah."
+                    },
+                    {
+                        "id": 7,
+                        "descPasal": "Peserta didik dilarang menyalahgunakan uang iuran kelas, kas kelas dan sejenisnya."
+                    },
+                    {
+                        "id": 8,
+                        "descPasal": "Peserta didik dilarang membawa atau memakai tipe-ex, spidol permanen, cat, dan sejenisnya di lingkungan sekolah."
+                    },
+                    {
+                        "id": 9,
+                        "descPasal": "Peserta didik dilarang mencorat-coret tembok, meja, dan fasilitas sekolah lainnya."
+                    },
+                    {
+                        "id": 10,
+                        "descPasal": "Peserta didik dilarang merusak fasilitas sekolah."
+                    },
+                    {
+                        "id": 11,
+                        "descPasal": "Peserta didik dilarang membawa bahan peledak/petasan."
+                    },
+                    {
+                        "id": 12,
+                        "descPasal": "Peserta didik dilarang membawa rokok/merokok."
+                    },
+                    {
+                        "id": 13,
+                        "descPasal": "Peserta didik dilarang berada di luar tempat tinggal melebihi pukul 22.00 WIB tanpa keperluan yang jelas."
+                    },
+                    {
+                        "id": 14,
+                        "descPasal": "Peserta didik dilarang bercanda berlebihan dan melakukan tindakan bullying."
+                    },
+                    {
+                        "id": 15,
+                        "descPasal": "Peserta didik dilarang mengancam keselamatan orang lain, seperti kebut-kebutan di jalan, berkendaraan sambil menggunakan HP, meneror orang lain dll."
+                    },
+                    {
+                        "id": 16,
+                        "descPasal": "Peserta didik wajib menjaga barang-barang milik sendiri. Segala bentuk kehilangan karena kelalaian peserta didik, menjadi tanggung jawab peserta didik."
                     }
                 ]
             }
@@ -411,13 +451,22 @@
                     },
                     {
                         "id": 4,
-                        "descPasal": "4).Kredit poin pelanggaran diakumulasikan selama 3 tahun, dengan ketentuan sebagai berikut :
-                        a).Batas maksimum kredit poin yang masih dapat ditoleransi untuk peserta didik kelas X adalah 99 poin.
-                        b).Batas maksimum kredit poin yang masih dapat ditoleransi untuk peserta didik kelas XI adalah 149 poin (sudah termasuk akumulasi poin dari kelas X).
-                        c).Batas maksimum kredit poin yang masih dapat ditoleransi untuk peserta didik kelas XII adalah 199 poin (sudah termasuk akumulasi poin dari kelas X dan kelas XI)."
+                        "descPasal": "Kredit poin pelanggaran diakumulasikan selama 3 tahun, dengan ketentuan sebagai berikut :"
                     },
                     {
                         "id": 5,
+                        "descPasal": "Batas maksimum kredit poin yang masih dapat ditoleransi untuk peserta didik kelas X adalah 99 poin."
+                    },
+                    {
+                        "id": 6,
+                        "descPasal": "Batas maksimum kredit poin yang masih dapat ditoleransi untuk peserta didik kelas XI adalah 149 poin (sudah termasuk akumulasi poin dari kelas X)."
+                    },
+                    {
+                        "id": 7,
+                        "descPasal": "Batas maksimum kredit poin yang masih dapat ditoleransi untuk peserta didik kelas XII adalah 199 poin (sudah termasuk akumulasi poin dari kelas X dan kelas XI)."
+                    },
+                    {
+                        "id": 8,
                         "descPasal": "Peserta didik yang telah mencapai kredit poin lebih besar dari batas maksimum kredit poin seperti diatur dalam ayat 4) diatas, dikeluarkan dari sekolah."
                     }
                 ]
@@ -440,9 +489,15 @@
                     },
                     {
                         "id": 3,
-                        "descPasal": "3).Mekanisme Penanganan dan pemberian debet poin prestasi :
-                        a.Peserta didik dapat langsung menyerahkan bukti prestasi atau dapat didampingi oleh guru pembina atau wali kelas atau pelatih kepada Tim BP/BK.
-                        Tim BP/BK mencatat poin prestasi itu pada Kartu Kendali Poin Peserta didik dan pada Buku Saku Tata tertib milik peserta didik bersangkutan."
+                        "descPasal": "Mekanisme Penanganan dan pemberian debet poin prestasi :"
+                    },
+                    {
+                        "id": 4,
+                        "descPasal": "Peserta didik dapat langsung menyerahkan bukti prestasi atau dapat didampingi oleh guru pembina atau wali kelas atau pelatih kepada Tim BP/BK."
+                    },
+                    {
+                        "id": 5,
+                        "descPasal": "Tim BP/BK mencatat poin prestasi itu pada Kartu Kendali Poin Peserta didik dan pada Buku Saku Tata tertib milik peserta didik bersangkutan."
                     }
                 ]
             }
@@ -464,34 +519,58 @@
                     },
                     {
                         "id": 3,
-                        "descPasal": "Pemberian sanksi langsung oleh seluruh guru dan karyawan dapat berupa: 
-                        a.Penyitaan barang milik peserta didik, dan atau
-                        b.Peserta didik melakukan kegiatan sosial, dan atau
-                        c.Peserta didik dipotong rambut dan kuku, dan atau
-                        d.Pemanggilan orang tua peserta didik untuk kasus khusus, dan atau
-                        e.Peserta didik mengganti/memperbaiki fasilitas sekolah yang dirusak, dan atau
-                        f.Peserta didik diberi tugas tambahan. "
+                        "descPasal": "Pemberian sanksi langsung oleh seluruh guru dan karyawan dapat berupa:"
                     },
                     {
                         "id": 4,
-                        "descPasal": "Mekanisme penanganan pemberian kredit poin pelanggaran :
-                        a.Setiap guru berhak menangani peserta didik yang terbukti atau diindikasikan melakukan pelanggaran, lalu memprosesnya hingga peserta didik tersebut mengakui pelanggaran. Setelah itu guru terus menindaklanjuti dengan mencatat poin pelanggaran pada buku saku peserta didik yang bersangkutan. Kemudian buku saku peserta didik tersebut diserahkan kepada Tim BP/BK.
-                        b.Tim BP/BK menindaklanjuti dengan menginput poin pelanggaran dan memberikan konseling terhadap peserta didik bersangkutan."
+                        "descPasal": "Penyitaan barang milik peserta didik, dan atau"
                     },
                     {
                         "id": 5,
-                        "descPasal": "Keputusan tertinggi berkenaan dengan pemberian sanksi adalah keputusan dalam Sidang Kasus."
+                        "descPasal": "Peserta didik melakukan kegiatan sosial, dan atau"
                     },
                     {
                         "id": 6,
-                        "descPasal": "Bagi peserta didik yang melakukan pelanggaran berat terhadap Tata Tertib Peserta Didik maupun norma masyarakat, maka kepadanya langsung diberikan sanksi berat yang diputuskan dalam Sidang Kasus, tanpa harus melalui Surat Pernyataan/Peringatan terlebih dahulu."
+                        "descPasal": "Peserta didik dipotong rambut dan kuku, dan atau"
                     },
                     {
                         "id": 7,
-                        "descPasal": "Pelanggaran berat yang dimaksud pada butir 6) di atas adalah jenis pelanggaran yang menyebabkan akumulasi kredit poin pelanggaran peserta didik melebihi batas maksimum yang masih dapat ditoleransi untuk masing-masing kelas, sesuai yang telah diatur dalam pasal 10 butir 4) dalam keputusan ini."
+                        "descPasal": "Pemanggilan orang tua peserta didik untuk kasus khusus, dan atau"
                     },
                     {
                         "id": 8,
+                        "descPasal": "Peserta didik mengganti/memperbaiki fasilitas sekolah yang dirusak, dan atau"
+                    },
+                    {
+                        "id": 9,
+                        "descPasal": "Peserta didik diberi tugas tambahan."
+                    },
+                    {
+                        "id": 10,
+                        "descPasal": "Mekanisme penanganan pemberian kredit poin pelanggaran :"
+                    },
+                    {
+                        "id": 11,
+                        "descPasal": "Setiap guru berhak menangani peserta didik yang terbukti atau diindikasikan melakukan pelanggaran, lalu memprosesnya hingga peserta didik tersebut mengakui pelanggaran. Setelah itu guru terus menindaklanjuti dengan mencatat poin pelanggaran pada buku saku peserta didik yang bersangkutan. Kemudian buku saku peserta didik tersebut diserahkan kepada Tim BP/BK."
+                    },
+                    {
+                        "id": 12,
+                        "descPasal": "Tim BP/BK menindaklanjuti dengan menginput poin pelanggaran dan memberikan konseling terhadap peserta didik bersangkutan."
+                    },
+                    {
+                        "id": 13,
+                        "descPasal": "Keputusan tertinggi berkenaan dengan pemberian sanksi adalah keputusan dalam Sidang Kasus."
+                    },
+                    {
+                        "id": 14,
+                        "descPasal": "Bagi peserta didik yang melakukan pelanggaran berat terhadap Tata Tertib Peserta Didik maupun norma masyarakat, maka kepadanya langsung diberikan sanksi berat yang diputuskan dalam Sidang Kasus, tanpa harus melalui Surat Pernyataan/Peringatan terlebih dahulu."
+                    },
+                    {
+                        "id": 15,
+                        "descPasal": "Pelanggaran berat yang dimaksud pada butir 6) di atas adalah jenis pelanggaran yang menyebabkan akumulasi kredit poin pelanggaran peserta didik melebihi batas maksimum yang masih dapat ditoleransi untuk masing-masing kelas, sesuai yang telah diatur dalam pasal 10 butir 4) dalam keputusan ini."
+                    },
+                    {
+                        "id": 16,
                         "descPasal": "Pembinaan terhadap peserta didik yang telah melakukan pelanggaran ditangani oleh Wali Kelas dan tim BP/BK."
                     }
                 ]

@@ -6,42 +6,382 @@
     },
     {
         "kode": "A-02",
-        "jenis_pelanggaran": "Peserta didik datang terlambat kurang dari 11 menit",
-        "point": 3
+        "jenis_pelanggaran": "Peserta didik datang terlambat 10 menit atau lebih",
+        "point": 5
+    },
+    {
+        "kode": "A-03",
+        "jenis_pelanggaran": "Peserta didik terlambat dan masuk kelas tanpa izin guru piket",
+        "point": 5
     },
     {
         "kode": "A-04",
-        "jenis_pelanggaran": "Peserta didik datang terlambat kurang dari 12 menit",
-        "point": 3
+        "jenis_pelanggaran": "Peserta didik izin keluar dan terlambat kembali ke sekolah",
+        "point": 5
     },
     {
         "kode": "A-05",
-        "jenis_pelanggaran": "Peserta didik datang terlambat kurang dari 13 menit",
-        "point": 3
+        "jenis_pelanggaran": "Peserta didik kelas X dan XI tidak mengikuti kegiatan ekstrakurikuler tanpa izin pembina",
+        "point": 10
+    },
+    {
+        "kode": "A-06",
+        "jenis_pelanggaran": "Peserta didik tidak mengikuti KBM tanpa izin dari guru pengampu ataupiket",
+        "point": 10
     },
     {
         "kode": "A-07",
-        "jenis_pelanggaran": "Peserta didik datang terlambat kurang dari 14 menit",
-        "point": 3
+        "jenis_pelanggaran": "Peserta didik tidak  masuk sekolah tanpa izin dari orang tua/wali",
+        "point": 10
     },
     {
         "kode": "A-08",
-        "jenis_pelanggaran": "Peserta didik datang terlambat kurang dari 15 menit",
-        "point": 3
+        "jenis_pelanggaran": "Peserta didik izin keluar dan tidak kembali ke sekolah",
+        "point": 10
     },
     {
         "kode": "A-09",
-        "jenis_pelanggaran": "Peserta didik datang terlambat kurang dari 16 menit",
-        "point": 3
+        "jenis_pelanggaran": "Peserta didik tidak mengikuti kegiatan sekolah yang diwajibkan",
+        "point": 10
     },
     {
         "kode": "B-01",
-        "jenis_pelanggaran": "Peserta didik datang terlambat kurang dari 17 menit",
-        "point": 3
+        "jenis_pelanggaran": "Seragam tidak sesuai ketentuan (atribut, sepatu, jilbab, kaos kaki, ikat pinggang, dan lain-lain)",
+        "point": 5
     },
     {
         "kode": "B-02",
-        "jenis_pelanggaran": "Peserta didik datang terlambat kurang dari 18 menit",
-        "point": 3
+        "jenis_pelanggaran": "Berpakaian tidak semestinya (terlalu ketat, transparan, dan lain-lain)",
+        "point": 5
+    },
+    {
+        "kode": "B-03",
+        "jenis_pelanggaran": "Memakai aksesori berlebihan *) (Putra: memakai kalung, gelang, cincin, anting, tindik, tato; Putri : memakai tato, tindik berlebihan, berdandan berlebihan, memakai gelang kaki, dan gelang tangan/kalung bukan emas)",
+        "point": 5
+    },
+    {
+        "kode": "B-04",
+        "jenis_pelanggaran": "Tidak memakai seragam pada waktu olahraga",
+        "point": 5
+    },
+    {
+        "kode": "C-01",
+        "jenis_pelanggaran": "Peserta didik memakai jaket, sweater, topi dan sebagainya pada saat KBM tanpa alasan jelas. ",
+        "point": 5
+    },
+    {
+        "kode": "C-02",
+        "jenis_pelanggaran": "Mengganggu KBM kelas lain.",
+        "point": 5
+    },
+    {
+        "kode": "C-03",
+        "jenis_pelanggaran": "Berada di luar kelas pada jam KBM tanpa ada alasan jelas.",
+        "point": 5
+    },
+    {
+        "kode": "C-04",
+        "jenis_pelanggaran": "Peserta didik melakukan aktivitas yang tidak berkaitan dengan materi pelajaran saat KBM berlangsung seperti mengaktifkan handphone, audio-video player (MP3, MP4, dan sejenisnya), bermain game, serta makan dan minum.",
+        "point": 10
+    },
+    {
+        "kode": "D-01",
+        "jenis_pelanggaran": "Tidak menggunakan seragam lengkap / pakaian sesuai ketentuan.",
+        "point": 5
+    },
+    {
+        "kode": "D-02",
+        "jenis_pelanggaran": "Tidak tertib (gaduh) dalam mengikuti upacara.",
+        "point": 10
+    },
+    {
+        "kode": "D-03",
+        "jenis_pelanggaran": "Tidak mengikuti upacara tanpa keterangan.",
+        "point": 10
+    },
+    {
+        "kode": "E-01",
+        "jenis_pelanggaran": "Parkir tidak pada tempatnya atau tidak teratur",
+        "point": 5
+    },
+    {
+        "kode": "E-02",
+        "jenis_pelanggaran": "Membunyikan sepeda motor keras-keras pada jam sekola",
+        "point": 5
+    },
+    {
+        "kode": "E-03",
+        "jenis_pelanggaran": "Menggunakan knalpot racing atau tidak standar (bobokan)",
+        "point": 10
+    },
+    {
+        "kode": "E-04",
+        "jenis_pelanggaran": "Tidak memiliki atau tidak membawa SIM (Surat Ijin Mengemudi)",
+        "point": 10
+    },
+    {
+        "kode": "E-05",
+        "jenis_pelanggaran": "Peserta didik membawa kendaraan roda 4 pada jam sekolah",
+        "point": 30
+    },
+    {
+        "kode": "F-01",
+        "jenis_pelanggaran": "Membawa tipe-ex, spidol, cat dan sejenisnya",
+        "point": 5
+    },
+    {
+        "kode": "F-02",
+        "jenis_pelanggaran": "Mengotori kelas atau lingkungan sekolah",
+        "point": 5
+    },
+    {
+        "kode": "F-03",
+        "jenis_pelanggaran": "Coret-coret tembok, meja, kursi, dan fasilitas sekolah lainnya",
+        "point": 20
+    },
+    {
+        "kode": "F-04",
+        "jenis_pelanggaran": "Merusak fasilitas sekolah",
+        "point": 30
+    },
+    {
+        "kode": "G-01",
+        "jenis_pelanggaran": "Melompat pagar sekolah",
+        "point": 5
+    },
+    {
+        "kode": "G-2",
+        "jenis_pelanggaran": "Mengabaikan perintah / tugas / peringatan guru",
+        "point": 10
+    },
+    {
+        "kode": "G-03",
+        "jenis_pelanggaran": "Mencontek, memberi contekan atau bekerjasama pada waktu ulangan / ujian / tes",
+        "point": 10
+    },
+    {
+        "kode": "G-04",
+        "jenis_pelanggaran": "Tutur kata tidak baik ",
+        "point": 10
+    },
+    {
+        "kode": "G-05",
+        "jenis_pelanggaran": "Tidak sopan/tidak menghormati guru/karyawan/tamu sekolah",
+        "point": 10
+    },
+    {
+        "kode": "G-06",
+        "jenis_pelanggaran": "Bekerjasama/menghasut teman untuk berbuat tidak baik",
+        "point": 15
+    },
+    {
+        "kode": "G-07",
+        "jenis_pelanggaran": "Bercanda berlebihan dan melakukan bullying",
+        "point": 25
+    },
+    {
+        "kode": "G-08",
+        "jenis_pelanggaran": "Membaca atau melihat buku porno, gambar/film porno dalam HP/komputer/VCD/DVD",
+        "point": 25
+    },
+    {
+        "kode": "H-01",
+        "jenis_pelanggaran": "Peserta didik berkuku panjang atau mewarnai kuku",
+        "point": 25
+    },
+    {
+        "kode": "H-02",
+        "jenis_pelanggaran": "Panjang rambut peserta didik putra lebih dari 3 cm, dikucir, tidak rapi atau diwarnai",
+        "point": 25
+    },
+    {
+        "kode": "I-01",
+        "jenis_pelanggaran": "Peserta didik membawa rokok di sekolah",
+        "point": 20
+    },
+    {
+        "kode": "I-02",
+        "jenis_pelanggaran": "Peserta didik membawa rokok dan merokok di lingkungan sekolah",
+        "point": 30
+    },
+    {
+        "kode": "I-03",
+        "jenis_pelanggaran": "Peserta didik merokok di luar sekolah dengan memakai seragam sekolah",
+        "point": 30
+    },
+    {
+        "kode": "J-01",
+        "jenis_pelanggaran": "Membawa senjata tajam atau alat yang membahayakan orang lain kecuali untuk kegiatan sekolah",
+        "point": 25
+    },
+    {
+        "kode": "J-02",
+        "jenis_pelanggaran": "Membawa dan atau membunyikan bahan peledak / petasan",
+        "point": 30
+    },
+    {
+        "kode": "K-01",
+        "jenis_pelanggaran": "Memalsukan tanda tangan atau surat izin.",
+        "point": 10
+    },
+    {
+        "kode": "K-02",
+        "jenis_pelanggaran": "Berada di luar tempat tinggal melebihi pukul 22.00 WIB tanpa alasan jelas.",
+        "point": 20
+    },
+    {
+        "kode": "K-03",
+        "jenis_pelanggaran": "Mengancam keselamatan orang lain, seperti kebut-kebutan di jalan, berkendaraan sambil menggunakan HP, meneror orang lain dll.",
+        "point": 30
+    },
+    {
+        "kode": "L-01",
+        "jenis_pelanggaran": "Tidak membawa buku saku tata tertib pada saat kegiatan sekolah",
+        "point": 5
+    },
+    {
+        "kode": "L-02",
+        "jenis_pelanggaran": "Menghilangkan buku saku tata tertib, baik secara sengaja maupun tidak sengaja",
+        "point": 10
+    },
+    {
+        "kode": "M-01",
+        "jenis_pelanggaran": "Memakai cadar",
+        "point": 200
+    },
+    {
+        "kode": "M-02",
+        "jenis_pelanggaran": "Berjudi",
+        "point": 100
+    },
+    {
+        "kode": "M-03",
+        "jenis_pelanggaran": "Membawa dan atau mengkonsumsi minuman keras",
+        "point": 100
+    },
+    {
+        "kode": "M-04",
+        "jenis_pelanggaran": "Berada di lingkungan sekolah dalam keadaan mabuk",
+        "point": 100
+    },
+    {
+        "kode": "M-05",
+        "jenis_pelanggaran": "Membawa, menggunakan, dan atau mengedarkan narkoba, minuman keras, dan zat psikotropika lainnya",
+        "point": 200
+    },
+    {
+        "kode": "M-06",
+        "jenis_pelanggaran": "Membawa alat kontrasepsi (bukan untuk kegiatan sekolah)",
+        "point": 50
+    },
+    {
+        "kode": "M-07",
+        "jenis_pelanggaran": "Membawa buku porno, gambar/film porno dalam HP/komputer/ VCD/DVD dan atau mengedarkannya",
+        "point": 50
+    },
+    {
+        "kode": "M-08",
+        "jenis_pelanggaran": "Menggunakan senjata tajam untuk melukai orang lain",
+        "point": 200
+    },
+    {
+        "kode": "M-09",
+        "jenis_pelanggaran": "Biang keladi perkelahian dengan peserta didik / orang luar sekolah",
+        "point": 75
+    },
+    {
+        "kode": "M-10",
+        "jenis_pelanggaran": "Biang keladi perkelahian dengan teman satu sekolah",
+        "point": 75
+    },
+    {
+        "kode": "M-11",
+        "jenis_pelanggaran": "Berkelahi/tawuran dengan peserta didik / orang luar sekolah",
+        "point": 75
+    },
+    {
+        "kode": "M-12",
+        "jenis_pelanggaran": "Berkelahi/tawuran dengan teman satu sekolah",
+        "point": 75
+    },
+    {
+        "kode": "M-13",
+        "jenis_pelanggaran": "Menganiaya orang lain dan melakukan tindakan kriminal lainnya.",
+        "point": 100
+    },
+    {
+        "kode": "M-14",
+        "jenis_pelanggaran": "Melakukan tindakan yang dapat mencemarkan nama baik sekolah.",
+        "point": 50
+    },
+    {
+        "kode": "M-15",
+        "jenis_pelanggaran": "Manipulasi uang/barang milik orang tua, guru, teman ataupun sekolah.",
+        "point": 50
+    },
+    {
+        "kode": "M-16",
+        "jenis_pelanggaran": "Melakukan pemerasan terhadap orang lain.",
+        "point": 50
+    },
+    {
+        "kode": "M-17",
+        "jenis_pelanggaran": "Berbohong, memfitnah, atau menyebarkan berita bohong",
+        "point": 50
+    },
+    {
+        "kode": "M-18",
+        "jenis_pelanggaran": "Mengunjungi tempat-tempat yang tidak layak bagi pelajar, seperti diskotik, karaoke, night club dll.",
+        "point": 50
+    },
+    {
+        "kode": "M-19",
+        "jenis_pelanggaran": "Mencuri dan atau terlibat pencurian uang/barang milik sekolah atau milik orang lain dan teman sekolah.",
+        "point": 50
+    },
+    {
+        "kode": "M-20",
+        "jenis_pelanggaran": "Memalsukan administrasi/dokumen sekolah/dokumen akademis.",
+        "point": 100
+    },
+    {
+        "kode": "M-21",
+        "jenis_pelanggaran": "Melawan secara fisik kepada guru / karyawan.",
+        "point": 200
+    },
+    {
+        "kode": "M-22",
+        "jenis_pelanggaran": "Terlibat tindakan  kriminal yang sampai ditangani oleh aparat penegak hukum.",
+        "point": 200
+    },
+    {
+        "kode": "M-23",
+        "jenis_pelanggaran": "Membentuk/terlibat dalam perkumpulan yang negatif dan organisasi terlarang.",
+        "point": 200
+    },
+    {
+        "kode": "M-24",
+        "jenis_pelanggaran": "Berpacaran di lingkungan sekolah atau melakukan tindakan tidak etis dalam berpacaran",
+        "point": 50
+    },
+    {
+        "kode": "M-25",
+        "jenis_pelanggaran": "Melakukan tindakan asusila di lingkungan sekolah",
+        "point": 100
+    },
+    {
+        "kode": "M-26",
+        "jenis_pelanggaran": "Berbuat zina",
+        "point": 200
+    },
+    {
+        "kode": "M-27",
+        "jenis_pelanggaran": "Hamil atau menghamili",
+        "point": 200
+    },
+    {
+        "kode": "M-28",
+        "jenis_pelanggaran": "Menikah selama masih berstatus sebagai peserta didik.",
+        "point": 200
     }
 ]

@@ -16,6 +16,7 @@ router.get('/all', getAll);
 router.get('/', getById);
 router.delete('/delete', _delete);
 router.get('/kategori', getKategoryPoint);
+router.get('/kategori/list', getListKategori);
 
 module.exports = router;
 
@@ -92,6 +93,20 @@ async function getKategoryPoint(req,res) {
         activity("Get Kategori Point",user_id)
         return response.wrapper_success(res, 200, "Sukses Get Kategori", query)
     } catch (error) {
-        
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                                 
+    }
+}
+
+async function getListKategori(req,res) {
+    try {
+        let query = await Point.find();
+
+        result = query.filter(function (a) {
+            return !this[a.kategori] && (this[a.kategori] = true);
+        }, Object.create(null));
+    
+        return response.wrapper_success(res, 200, "Sukses Get List Kategori", result)
+    } catch (error) {
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                                 
     }
 }

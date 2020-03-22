@@ -125,7 +125,7 @@ async function uploadPelanggaran(req,res) {
 
 async function getAllPelanggaran(req,res) {
     try {
-        let query = await Lapor.find();
+        let query = await Lapor.find().sort({ "createdDate": -1 });
 
         // Activity
         let token = req.headers.authorization.replace('Bearer ','');
@@ -161,7 +161,7 @@ async function getPelanggaranByid(req, res) {
             _id : req.query.id
         }
     
-        let query = await Lapor.findById(model._id);
+        let query = await Lapor.find(model._id).sort({ "createdDate": -1 });
 
                 // Activity
         let token = req.headers.authorization.replace('Bearer ','');

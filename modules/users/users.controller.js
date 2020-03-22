@@ -248,22 +248,39 @@ async function getUserbyToken(req, res) {
             return response.wrapper_error(res, httpError.NOT_FOUND, 'User Not Found')        
         }
 
-        let getPelanggaran = await Lapor.find({ "user.id": user_id }).sort({ "createdDate": -1 })
-        console.log(getPelanggaran)
-        let model = {
-            id: query[0]._id,
-            nis: query[0].nis,
-            name: query[0].name,
-            class: query[0].class,
-            point: query[0].point,
-            email: query[0].email,
-            createdDate: query[0].createdDate,
-            photo: getPelanggaran[0].image
+        if(query[0].role === 'user') {
+            let getPelanggaran = await Lapor.find({ "user.id": user_id }).sort({ "createdDate": -1 })
+            let model = {
+                id: query[0]._id,
+                nis: query[0].nis,
+                name: query[0].name,
+                class: query[0].class,
+                point: query[0].point,
+                email: query[0].email,
+                createdDate: query[0].createdDate,
+                photo: getPelanggaran[0].image ? photo: 'https://avatars0.githubusercontent.com/u/51704590?s=200&v=4'
+            }
+    
+            activity("Get User by Token",user_id)
+            return response.wrapper_success(res, 200, "Sukses Get User", model)
+        } else {
+            let model = {
+                id: query[0]._id,
+                nis: query[0].nis,
+                name: query[0].name,
+                class: query[0].class,
+                point: query[0].point,
+                email: query[0].email,
+                createdDate: query[0].createdDate,
+            }
+    
+            activity("Get User by Token",user_id)
+            return response.wrapper_success(res, 200, "Sukses Get User", model)
         }
 
-        activity("Get User by Token",user_id)
-        return response.wrapper_success(res, 200, "Sukses Get User", model)
+      
     } catch (error) {
+        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')        
     }
 }

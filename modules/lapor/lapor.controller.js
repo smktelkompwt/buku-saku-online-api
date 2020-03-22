@@ -162,7 +162,7 @@ async function getPelanggaranByid(req, res) {
             _id : req.query.id
         }
     
-        let query = await Lapor.find(model._id).sort({ "createdDate": -1 });
+        let query = await Lapor.find({ _id: model._id }).sort({ "createdDate": -1 });
 
                 // Activity
         let token = req.headers.authorization.replace('Bearer ','');
@@ -173,6 +173,7 @@ async function getPelanggaranByid(req, res) {
         activity("Get Pelanggaran By Id",user_id)
         return response.wrapper_success(res, 200, "Sukses Get Peraturan Peraturan by id", query)
     } catch (error) {
+        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                 
     }
 }

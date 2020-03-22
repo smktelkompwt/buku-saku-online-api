@@ -162,7 +162,7 @@ async function getPelanggaranByid(req, res) {
             _id : req.query.id
         }
     
-        let query = await Lapor.find({ _id: model._id }).sort({ "createdDate": -1 });
+        let query = await Lapor.findOne({ _id: model._id }).sort({ "createdDate": -1 });
 
                 // Activity
         let token = req.headers.authorization.replace('Bearer ','');

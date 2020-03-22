@@ -137,12 +137,16 @@ async function editBab(req, res) {
 
 async function editPasal(req, res) {
     try {
+        let data = {
+            "pasal.0.title": req.body.title
+        }
+
         let query = Aturan.updateOne(
-            {'_id': req.query.id},
-            { "$set": {"pasal.$.title": "HEHEAJAYA"} }
+            { _id: req.query.id },
+            { $set: data }
         )
 
-        return response.wrapper_success(res, 200, "Sukses Edit Peraturan Peraturan by id", query);
+        return response.wrapper_success(res, 200, "Sukses Edit Peraturan Peraturan by id", data);
     } catch (error) {
         console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')

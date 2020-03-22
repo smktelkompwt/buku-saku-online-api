@@ -60,7 +60,7 @@ async function getAll(req,res) {
             countPelanggaran: getPelanggaran.length,
             pelanggaran: array
         }
-        return response.wrapper_success(res, 200, "Sukses Get All Kelas", model)
+        return response.wrapper_success(res, 200, "Sukses Get All Data Dashboard", model)
     } catch (error) {
         console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         

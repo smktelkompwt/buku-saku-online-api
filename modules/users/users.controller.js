@@ -272,6 +272,7 @@ async function getUserbyToken(req, res) {
                 point: query[0].point,
                 email: query[0].email,
                 createdDate: query[0].createdDate,
+                photo: 'https://avatars0.githubusercontent.com/u/51704590?s=200&v=4'
             }
     
             activity("Get User by Token",user_id)

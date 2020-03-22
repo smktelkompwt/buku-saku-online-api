@@ -37,23 +37,28 @@ async function getAll(req,res) {
             arrayPelanggaranKategori.push(data)
         }
 
-        // var count = {};
-        // arrayPelanggaranKategori.forEach(function(i) { 
-        //     count[key] = (count[key]||0) + 1;
-        // });
+        var rez={};
+        let array = []
 
-        // let titleCount = Object.keys(count);
-        // console.log(titleCount)
+        getPelanggaran.forEach(function(item){
+            rez[item.pelanggaran.kategori] ? rez[item.pelanggaran.kategori]++ :  rez[item.pelanggaran.kategori] = 1;
+        });
+
+        let key = Object.keys(rez);
+        let values = Object.values(rez)
+
+        for(let index = 0; index < key.length; index++) {
+            let models = {
+                title: key[index],
+                count: values[index]
+            }
+            array.push(models)
+        }
         
-        // for(let o=0; o<getPelanggaran.length; o++) {
-        //     let getValues = Object.keys(count[o]);
-        //     console.log(getValues)
-        // }
-        // console.log(count)
         let model = {
             countSiswa: query.length,
-            countPelanggaran: countPelanggaran,
-            // countPalingSering: count
+            countPelanggaran: getPelanggaran.length,
+            pelanggaran: array
         }
         return response.wrapper_success(res, 200, "Sukses Get All Kelas", model)
     } catch (error) {

@@ -25,6 +25,7 @@ router.get('/all', getAllPelanggaran);
 router.get('/me', getAllPelanggaran);
 router.get('/', getPelanggaranByid);
 router.delete('/delete', deleteAllLaporan);
+router.post('/prestasi', laporPrestasi)
 module.exports = router;
 
 async function uploadPelanggaran(req,res) {
@@ -190,5 +191,77 @@ async function deleteAllLaporan(req,res) {
         return response.wrapper_success(res, 200, "Sukses Hapus All Peraturan", query)
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                         
+    }
+}
+
+async function laporPrestasi(req,res) {
+    try {
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        let getUser = await User.find({ "nis": req.body.nis })
+        if(getUser.length < 1) {
+            return response.wrapper_error(res, httpError.NOT_FOUND, 'Nis tidak ditemukan')         
+        }
+    
+        let getPelapor = await User.find({ "_id": user_id });   
+        if(getPelapor.length < 1) {
+            return response.wrapper_error(res, httpError.UNAUTHORIZED, 'Token Expired, Silahkan Login Ulang')         
+        } 
+
+        let getPrestasi = await Point.find({ "jenis_pelanggaran": req.body.jenis_pelanggaran, "tag": "prestasi" })
+        if(getPrestasi.length < 1) {
+            return response.wrapper_error(res, httpError.NOT_FOUND, 'Pelanggaran tidak ditemukan')         
+        }
+
+        let model = {
+            user: {
+                id: getUser[0]._id,
+                nis: getUser[0].nis,
+                nama: getUser[0].name,
+                kelas: getUser[0].class,
+            },
+            pelanggaran: {
+                kategori: getPrestasi[0].jenis_pelanggaran,
+                point: getPrestasi[0].point,
+                kode: getPrestasi[0].kode
+            },
+            pelapor: {
+                id: getPelapor[0]._id,
+                nama: getPelapor[0].name
+            },
+            createdDate: dateFormat(Date.now())
+       }    
+        
+       let userModel = {
+            name: getUser[0].name,
+            email: getUser[0].email,
+            class: getUser[0].class,
+            nis: getUser[0].nis,
+            point: getUser[0].point - getPrestasi[0].point,
+            password : getUser[0].password,
+            role: getUser[0].role
+        }
+       
+       await User.update({ "nis": req.body.nis }, userModel)
+       let lapor = new Lapor(model)
+       let query = await lapor.save();
+       
+       let activityModel = {
+           user_id: getPelapor[0]._id,
+           username: getPelapor[0].name,
+           activity: "Upload Prestasi",
+           created_at: dateFormat(Date.now())
+       }
+
+       let activity = new Aktivitas(activityModel);
+       await activity.save()
+
+       return response.wrapper_success(res, 200, 'Succes Upload Prestasi', query )
+    } catch (error) {
+        console.log(error)
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, error)                                 
     }
 }

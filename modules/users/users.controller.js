@@ -250,6 +250,7 @@ async function getUserbyToken(req, res) {
 
         if(query[0].role === 'user') {
             let getPelanggaran = await Lapor.find({ "user.id": user_id }).sort({ "createdDate": -1 })
+            let photo;
             let model = {
                 id: query[0]._id,
                 nis: query[0].nis,

@@ -32,46 +32,46 @@ router.get('/search', searchUserbyNis);
 
 module.exports = router;
 
-async function createAdmin(req, res) {
+async function createAdmin(req,res) {
     try {
         let model = {
-            name: req.body.name,
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
+            name : req.body.name,
+            email : req.body.email,
+            password : bcrypt.hashSync(req.body.password, 10),
             role: "admin"
         }
-        let checkEmail = await User.findOne({ "email": model.email });
-
+        let checkEmail = await User.findOne({ "email" : model.email });
+    
         if (checkEmail) {
             return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Email is already taken')
         }
-
+    
         const user = new User(model)
         let query = await user.save();
-
-        return response.wrapper_success(res, 200, 'Succes Register Admin', query)
+    
+        return response.wrapper_success(res, 200, 'Succes Register Admin', query )
     } catch (error) {
         console.log(error)
-        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')        
     }
-
+    
 }
 
 async function authenticateAdmin(req, res) {
     try {
         let model = {
-            email: req.body.email,
-            password: req.body.password
+            email : req.body.email,
+            password : req.body.password
         }
-        const checkEmail = await User.findOne({ "email": model.email });
+        const checkEmail = await User.findOne({ "email" : model.email });
 
-        if (!checkEmail) {
+        if(!checkEmail) {
             return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Email Incorrect')
         }
-
-        if (checkEmail && bcrypt.compareSync(model.password, checkEmail.password)) {
+    
+        if(checkEmail && bcrypt.compareSync(model.password, checkEmail.password)) {
             const token = jwt.sign({ sub: checkEmail.id }, config.secret);
-
+          
             let activityModel = {
                 user_id: checkEmail._id,
                 username: checkEmail.name,
@@ -87,12 +87,12 @@ async function authenticateAdmin(req, res) {
         }
     } catch (error) {
         console.log(error)
-        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                
     }
 
 }
 
-async function registerUser(req, res) {
+async function registerUser(req,res) {
     try {
         let model = {
             name: req.body.name,
@@ -100,27 +100,27 @@ async function registerUser(req, res) {
             class: req.body.class,
             nis: req.body.nis,
             point: 0,
-            password: bcrypt.hashSync(req.body.password, 10),
+            password : bcrypt.hashSync(req.body.password, 10),
             role: "user"
         }
-        let checkEmail = await User.findOne({ "email": model.email });
-
+        let checkEmail = await User.findOne({ "email" : model.email });
+    
         if (checkEmail) {
             return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Email is already taken')
         }
-
+    
         const user = new User(model)
         let query = await user.save();
-
-        return response.wrapper_success(res, 200, 'Succes Register User', query)
+    
+        return response.wrapper_success(res, 200, 'Succes Register User', query )
     } catch (error) {
         console.log(error)
-        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')        
     }
-
+    
 }
 
-async function getAllUser(req, res) {
+async function getAllUser(req,res) {
     try {
         let query = await User.find({ "role": "user" });
 
@@ -137,10 +137,10 @@ async function getAllUser(req, res) {
         console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
     }
-
+    
 }
 
-async function getAllAdmin(req, res) {
+async function getAllAdmin(req,res) {
     try {
         let query = await User.find({ "role": "admin" });
 
@@ -154,12 +154,12 @@ async function getAllAdmin(req, res) {
 
         return response.wrapper_success(res, 200, "Sukses Get All User", query)
     } catch (error) {
-        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
     }
-
+    
 }
 
-async function deleteAllUser(req, res) {
+async function deleteAllUser(req,res) {
     try {
         let query = await User.remove();
 

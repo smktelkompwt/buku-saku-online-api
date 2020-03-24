@@ -6,7 +6,6 @@ const router = express.Router();
 const db = require('../../helpers/db');
 const { ERROR: httpError } = require('../../helpers/httpError');
 const response = require('../../helpers/wrapper');
-const dateFormat = require('../../helpers/dateFormat');
 const activity = require('../../helpers/insertActivity');
 
 const Kelas = db.Kelas;
@@ -14,7 +13,7 @@ const User = db.User;
 
 // routes
 router.get('/all', getAll);
-router.post('/create', create);
+router.post('/create', createKelas);
 router.get('/', getUserInClass);
 router.delete('/delete', _delete);
 router.delete('/remove', deleteKelasbyId);
@@ -27,7 +26,7 @@ async function getAll(req,res) {
         let jurusan = req.query.jurusan;
         let query = await Kelas.find({ 'jurusan': jurusan });
 
-                // Activity
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -40,7 +39,7 @@ async function getAll(req,res) {
     }   
 }
 
-async function create(req,res) {
+async function createKelas(req,res) {
     try {
         let model = {
             kelas: req.body.kelas,
@@ -49,7 +48,6 @@ async function create(req,res) {
         }
 
         let checkIfExist = await Kelas.find({ 'kelas': model.kelas })
-        console.log(checkIfExist)
         if(checkIfExist.length > 0) {
             return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Class is already taken')
         }
@@ -57,7 +55,7 @@ async function create(req,res) {
         let kelas = new Kelas(model);
         let query = await kelas.save();
 
-        // Activity
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -81,7 +79,7 @@ async function getUserInClass(req,res) {
 
         let query = await User.find({ 'class': getClass, 'role': 'user' });
 
-        // Activity
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -98,7 +96,7 @@ async function _delete(req, res) {
     try {
         let query = await Kelas.remove();
 
-                // Activity
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -115,7 +113,8 @@ async function _delete(req, res) {
 async function deleteKelasbyId(req,res) {
     try {
         let query = await Kelas.findByIdAndRemove({ _id: req.query.id });
-
+        
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -133,7 +132,6 @@ async function editKelas(req, res) {
     try {
         let id = req.query.id;
         let getByid = await Kelas.findById({ _id: id });
-        console.log(getByid)
         let model = {
             kelas: req.body.kelas ? req.body.kelas : getByid.kelas,
             wali_kelas: req.body.wali_kelas ? req.body.wali_kelas : getByid.wali_kelas,
@@ -142,6 +140,7 @@ async function editKelas(req, res) {
 
         let query = await Kelas.update({ _id: id }, model)
 
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -151,7 +150,6 @@ async function editKelas(req, res) {
 
         return response.wrapper_success(res, 200, "Sukses Edit Kelas", query)
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
     }
 }

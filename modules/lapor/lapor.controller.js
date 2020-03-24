@@ -105,6 +105,8 @@ async function uploadPelanggaran(req,res) {
        await User.update({ "nis": req.body.nis }, userModel)
        let lapor = new Lapor(model)
        let query = await lapor.save();
+
+        // this will get token to auth user and insert to activity
        
        let activityModel = {
            user_id: getPelapor[0]._id,
@@ -118,7 +120,6 @@ async function uploadPelanggaran(req,res) {
 
        return response.wrapper_success(res, 200, 'Succes Upload Pelanggaran', query )
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, error)         
         
     }
@@ -128,7 +129,7 @@ async function getAllPelanggaran(req,res) {
     try {
         let query = await Lapor.find().sort({ "createdDate": -1 });
 
-        // Activity
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -137,24 +138,10 @@ async function getAllPelanggaran(req,res) {
         activity("Get All Pelanggaran",user_id)
         return response.wrapper_success(res, 200, "Sukses Get Pelanggaran", query)
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
     }   
 }
 
-async function getAllPelanggaranbyUser(req,res) {
-    try {
-        let token = req.headers.authorization.replace('Bearer ','');
-    
-        let decode = jwt.decode(token);
-        let user_id = decode.sub;
-        
-        let query = await Lapor.find({ 'user.id': user_id });
-        return response.wrapper_success(res, 200, "Sukses Get Aktivitas User", query)
-    } catch (error) {
-        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
-    }   
-}
 
 async function getPelanggaranByid(req, res) {
     try {
@@ -164,7 +151,7 @@ async function getPelanggaranByid(req, res) {
     
         let query = await Lapor.findOne({ _id: model._id }).sort({ "createdDate": -1 });
 
-                // Activity
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -173,7 +160,6 @@ async function getPelanggaranByid(req, res) {
         activity("Get Pelanggaran By Id",user_id)
         return response.wrapper_success(res, 200, "Sukses Get Peraturan Peraturan by id", query)
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                 
     }
 }
@@ -182,7 +168,7 @@ async function deleteAllLaporan(req,res) {
     try {
         let query = await Lapor.remove();
 
-                // Activity
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -249,6 +235,8 @@ async function laporPrestasi(req,res) {
        await User.update({ "nis": req.body.nis }, userModel)
        let lapor = new Lapor(model)
        let query = await lapor.save();
+
+       // this will get token to auth user and insert to activity
        
        let activityModel = {
            user_id: getPelapor[0]._id,
@@ -262,7 +250,6 @@ async function laporPrestasi(req,res) {
 
        return response.wrapper_success(res, 200, 'Succes Upload Prestasi', query )
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, error)                                 
     }
 }

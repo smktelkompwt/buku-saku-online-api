@@ -95,7 +95,8 @@ async function getPasal(req, res) {
             title: data.title,
             desc: data.desc
         }
-        // Activity
+
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -104,7 +105,6 @@ async function getPasal(req, res) {
         activity("Get Pasal",user_id)
         return response.wrapper_success(res, 200, "Sukses Get Peraturan Peraturan by id", newModel)
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                 
     }
 }
@@ -120,17 +120,16 @@ async function editBab(req, res) {
 
         let query = await Aturan.updateOne({ _id: id }, model)
 
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ', '');
 
         let decode = jwt.decode(token);
         let user_id = decode.sub;
 
         activity("Edit Bab", user_id)
-        console.log(id);
 
         return response.wrapper_success(res, 200, "Sukses Edit Peraturan Peraturan by id", query)
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
     }
 }
@@ -148,7 +147,6 @@ async function editPasal(req, res) {
 
         return response.wrapper_success(res, 200, "Sukses Edit Peraturan Peraturan by id", data);
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
     }
 }
@@ -157,6 +155,7 @@ async function _deleteBab(req, res) {
     try {
         let query = await Aturan.findByIdAndRemove({ _id: req.query.id });
 
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ', '');
 
         let decode = jwt.decode(token);
@@ -185,7 +184,8 @@ async function _deletePasal(req, res) {
         }
 
         let newQuery = await Aturan.remove({ _id: newModel._id });
-
+        
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ', '');
 
         let decode = jwt.decode(token);
@@ -194,7 +194,6 @@ async function _deletePasal(req, res) {
         activity("Delete Pasal", user_id)
         return response.wrapper_success(res, 200, "Sukses Hapus Pasal Peraturan", newQuery)
     } catch (error) {
-        console.log(error);
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
     }
 }

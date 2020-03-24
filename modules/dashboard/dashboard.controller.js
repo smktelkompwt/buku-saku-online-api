@@ -21,31 +21,24 @@ module.exports = router;
 async function getAll(req,res) {
     try {
         let query = await User.find({ 'role': 'user' });
-        let countPelanggaran = 0;
-
-        for(let i=0; i<query.length; i++) {
-            if(query[i].point != 0) {
-                countPelanggaran++
-            }
-        }
 
         let getPelanggaran = await Lapor.find();
         let arrayPelanggaranKategori = [];
 
-        for(let a=0; a<getPelanggaran.length; a++) {
+        for(let a = 0; a < getPelanggaran.length; a++) {
             let data = getPelanggaran[a].pelanggaran.kategori
             arrayPelanggaranKategori.push(data)
         }
 
-        var rez={};
+        var result = {};
         let array = []
 
         getPelanggaran.forEach(function(item){
-            rez[item.pelanggaran.kategori] ? rez[item.pelanggaran.kategori]++ :  rez[item.pelanggaran.kategori] = 1;
+            result[item.pelanggaran.kategori] ? result[item.pelanggaran.kategori]++ :  result[item.pelanggaran.kategori] = 1;
         });
 
-        let key = Object.keys(rez);
-        let values = Object.values(rez)
+        let key = Object.keys(result);
+        let values = Object.values(result)
 
         for(let index = 0; index < key.length; index++) {
             let models = {
@@ -60,9 +53,16 @@ async function getAll(req,res) {
             countPelanggaran: getPelanggaran.length,
             pelanggaran: array
         }
+
+        // this will get token to auth user and insert to activity
+        let token = req.headers.authorization.replace('Bearer ', '');
+
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        activity("Get Data Dashboard", user_id)
         return response.wrapper_success(res, 200, "Sukses Get All Data Dashboard", model)
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
     }   
 }

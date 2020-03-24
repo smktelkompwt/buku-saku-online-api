@@ -29,7 +29,7 @@ async function getAll(req,res) {
     try {
         let query = await Point.find({ "tag": "pelanggaran" });
 
-        // Activity
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -38,7 +38,6 @@ async function getAll(req,res) {
         activity("Get All Point",user_id)
         return response.wrapper_success(res, 200, "Sukses Get Point Pelanggaran", query)
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
     }
 }
@@ -51,7 +50,7 @@ async function getById(req, res) {
     
         let query = await Point.findById(model._id);
 
-        // Activity
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -122,6 +121,14 @@ async function getListKategoriPrestasi(req,res) {
         result = query.filter(function (a) {
             return !this[a.kategori] && (this[a.kategori] = true);
         }, Object.create(null));
+
+        // this will get token to auth user and insert to activity
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+ 
+        activity("Get List Kategori Prestasi",user_id)
     
         return response.wrapper_success(res, 200, "Sukses Get List Kategori Prestasi", result)
     } catch (error) {
@@ -133,7 +140,7 @@ async function getPrestasi(req,res) {
     try {
         let query = await Point.find({ "tag": "prestasi" });
 
-        // Activity
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -142,7 +149,6 @@ async function getPrestasi(req,res) {
         activity("Get All Point Prestasi",user_id)
         return response.wrapper_success(res, 200, "Sukses Get Point Prestasi", query)
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
     }
 }
@@ -151,6 +157,7 @@ async function deleteById(req,res) {
     try {
         let query = await Point.findByIdAndRemove({ _id: req.query.id });
 
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -178,6 +185,7 @@ async function editPoint(req, res) {
 
         let query = await Point.update({ _id: id }, model)
 
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -208,10 +216,16 @@ async function createPoint(req, res) {
 
         const point = new Point(model)
         let query = await point.save();
+        
+        // this will get token to auth user and insert to activity
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
 
+        activity("Create Point",user_id)
         return response.wrapper_success(res, 200, 'Succes Create Point', query)
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
     }
 }

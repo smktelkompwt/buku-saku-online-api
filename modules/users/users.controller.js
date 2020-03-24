@@ -51,7 +51,6 @@ async function createAdmin(req,res) {
     
         return response.wrapper_success(res, 200, 'Succes Register Admin', query )
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')        
     }
     
@@ -71,7 +70,8 @@ async function authenticateAdmin(req, res) {
     
         if(checkEmail && bcrypt.compareSync(model.password, checkEmail.password)) {
             const token = jwt.sign({ sub: checkEmail.id }, config.secret);
-          
+            
+            // this will get token to auth user and insert to activity
             let activityModel = {
                 user_id: checkEmail._id,
                 username: checkEmail.name,
@@ -86,7 +86,6 @@ async function authenticateAdmin(req, res) {
             return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Password Incorrect')
         }
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                
     }
 
@@ -114,7 +113,6 @@ async function registerUser(req,res) {
     
         return response.wrapper_success(res, 200, 'Succes Register User', query )
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')        
     }
     
@@ -124,7 +122,7 @@ async function getAllUser(req,res) {
     try {
         let query = await User.find({ "role": "user" });
 
-        // Activity
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -134,7 +132,6 @@ async function getAllUser(req,res) {
 
         return response.wrapper_success(res, 200, "Sukses Get All User", query)
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
     }
     
@@ -144,7 +141,7 @@ async function getAllAdmin(req,res) {
     try {
         let query = await User.find({ "role": "admin" });
 
-        // Activity
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -192,6 +189,7 @@ async function getUserbyId(req, res) {
             pelanggaran: getPelanggaran
         }
 
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -201,7 +199,6 @@ async function getUserbyId(req, res) {
 
         return response.wrapper_success(res, 200, "Sukses Get User", model)
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
     }
 }
@@ -223,6 +220,7 @@ async function editUser(req, res) {
 
         let query = await User.update({ _id: id }, model)
 
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -261,7 +259,8 @@ async function getUserbyToken(req, res) {
                 createdDate: query[0].createdDate,
                 photo: getPelanggaran[0].image ? photo: 'https://avatars0.githubusercontent.com/u/51704590?s=200&v=4'
             }
-    
+
+            // this will get token to auth user and insert to activity    
             activity("Get User by Token",user_id)
             return response.wrapper_success(res, 200, "Sukses Get User", model)
         } else {
@@ -275,14 +274,12 @@ async function getUserbyToken(req, res) {
                 createdDate: query[0].createdDate,
                 photo: 'https://avatars0.githubusercontent.com/u/51704590?s=200&v=4'
             }
-    
+            
+            // this will get token to auth user and insert to activity
             activity("Get User by Token",user_id)
             return response.wrapper_success(res, 200, "Sukses Get User", model)
         }
-
-      
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')        
     }
 }
@@ -291,6 +288,7 @@ async function deleteUserbyId(req,res) {
     try {
         let query = await User.findByIdAndRemove({ _id: req.query.id });
 
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -308,7 +306,6 @@ async function editAdmin(req, res) {
     try {
         let id = req.query.id;
         let getByid = await User.findById({ _id: id });
-        console.log(id)
         let model = {
             name: req.body.name ? req.body.name : getByid.name,
             email: req.body.email ? req.body.email : getByid.email,
@@ -318,6 +315,7 @@ async function editAdmin(req, res) {
 
         let query = await User.update({ _id: id }, model)
 
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -327,7 +325,6 @@ async function editAdmin(req, res) {
 
         return response.wrapper_success(res, 200, "Sukses Edit Admin", model)
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')
     }
 }
@@ -335,9 +332,9 @@ async function editAdmin(req, res) {
 async function searchUserbyNis(req,res) {
    try {
         let nis = req.query.nis;
-
         let query = await User.find({ 'nis': nis });
 
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
         
         let decode = jwt.decode(token);

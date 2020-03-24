@@ -1,7 +1,5 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const fetch = require("node-fetch");
-const axios = require('axios')
 const bcrypt = require('bcryptjs');
 const router = express.Router();
 
@@ -10,7 +8,6 @@ const router = express.Router();
 const db = require('../../helpers/db');
 const { ERROR: httpError } = require('../../helpers/httpError');
 const response = require('../../helpers/wrapper');
-const dateFormat = require('../../helpers/dateFormat');
 const activity = require('../../helpers/insertActivity');
 
 const Aturan = db.Aturan;
@@ -31,7 +28,7 @@ async function importPeraturan(req,res) {
         let soal = require('../../data/buku-saku.json');
         let query = await Aturan.insertMany(soal);
 
-        // Activity
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -40,7 +37,6 @@ async function importPeraturan(req,res) {
         activity("Import Peraturan",user_id)
         return response.wrapper_success(res, 200, "Sukses Upload Peraturan", query)
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
     }
 }
@@ -50,7 +46,7 @@ async function importPoint(req,res) {
         let point = require('../../data/daftar-point.json');
         let query = await Point.insertMany(point);
         
-        // Activity
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -59,7 +55,6 @@ async function importPoint(req,res) {
         activity("Import Point",user_id)
         return response.wrapper_success(res, 200, "Sukses Upload Point", query)
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
     }
 }
@@ -85,7 +80,7 @@ async function importAllUser(req,res) {
             result.push(model)
         }
         
-        // Activity
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -96,7 +91,6 @@ async function importAllUser(req,res) {
         let query = await User.insertMany(result);
         return response.wrapper_success(res, 200, "Sukses Import User", query)
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
     }
 }
@@ -106,7 +100,7 @@ async function importKelas(req,res) {
         let point = require('../../data/daftar-kelas.json');
         let query = await Kelas.insertMany(point);
         
-        // Activity
+        // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
     
         let decode = jwt.decode(token);
@@ -115,7 +109,6 @@ async function importKelas(req,res) {
         activity("Import Kelas",user_id)
         return response.wrapper_success(res, 200, "Sukses Import Kelas", query)
     } catch (error) {
-        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         
     }
 }

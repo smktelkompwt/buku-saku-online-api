@@ -67,6 +67,10 @@ async function authenticateAdmin(req, res) {
         if(!checkEmail) {
             return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Email Incorrect')
         }
+
+        if(checkEmail.role != "admin") {
+            return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Anda Bukan Admin')
+        }
     
         if(checkEmail && bcrypt.compareSync(model.password, checkEmail.password)) {
             const token = jwt.sign({ sub: checkEmail.id }, config.secret);

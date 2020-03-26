@@ -23,6 +23,8 @@ async function getAll(req,res) {
         let query = await User.find({ 'role': 'user' });
 
         let getPelanggaran = await Lapor.find();
+        let getKelas = await Kelas.find();
+        
         let arrayPelanggaranKategori = [];
 
         for(let a = 0; a < getPelanggaran.length; a++) {
@@ -51,6 +53,7 @@ async function getAll(req,res) {
         let model = {
             countSiswa: query.length,
             countPelanggaran: getPelanggaran.length,
+            countKelas: getKelas.length,
             pelanggaran: array
         }
 

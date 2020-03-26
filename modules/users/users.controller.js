@@ -20,7 +20,7 @@ router.post('/admin/login', authenticateAdmin);
 router.post('/admin/register', createAdmin);
 router.get('/admin/all', getAllAdmin);
 router.post('/register', registerUser);
-router.post('/login', authenticateAdmin);
+router.post('/login', authenticateUser);
 router.get('/all', getAllUser);
 router.delete('/delete', deleteAllUser);
 router.get('/get/', getUserbyId);
@@ -79,7 +79,7 @@ async function authenticateAdmin(req, res) {
             let activityModel = {
                 user_id: checkEmail._id,
                 username: checkEmail.name,
-                activity: "Login",
+                activity: "Login Admin",
                 created_at: dateFormat(Date.now())
             }
     
@@ -92,7 +92,40 @@ async function authenticateAdmin(req, res) {
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                
     }
+}
 
+async function authenticateUser(req,res) {
+    try {
+        let model = {
+            email : req.body.email,
+            password : req.body.password
+        }
+        const checkEmail = await User.findOne({ "email" : model.email });
+
+        if(!checkEmail) {
+            return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Email Incorrect')
+        }
+    
+        if(checkEmail && bcrypt.compareSync(model.password, checkEmail.password)) {
+            const token = jwt.sign({ sub: checkEmail.id }, config.secret);
+            
+            // this will get token to auth user and insert to activity
+            let activityModel = {
+                user_id: checkEmail._id,
+                username: checkEmail.name,
+                activity: "Login User",
+                created_at: dateFormat(Date.now())
+            }
+    
+            let activity = new Aktivitas(activityModel);
+            await activity.save()
+            return response.wrapper_success(res, 200, 'Succes Login', checkEmail, token)
+        } else {
+            return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Password Incorrect')
+        }
+    } catch (error) {
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                
+    }
 }
 
 async function registerUser(req,res) {

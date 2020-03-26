@@ -16,7 +16,7 @@ module.exports = router;
 
 async function getAll(req,res) {
     try {
-        let query = await Aktivitas.find();
+        let query = await Aktivitas.find().limit(10).sort({ "created_at": -1});
         return response.wrapper_success(res, 200, "Sukses Get All Aktivitas", query)
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')         

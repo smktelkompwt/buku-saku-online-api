@@ -5,3 +5,6 @@ package-lock.json
 buku-saku.pem
 login.sh
 bukusaku-api.pem
+.env
+config.json
+init-mongo.js

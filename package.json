@@ -9,6 +9,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-jwt": "^5.3.1",
     "google-spreadsheet": "^3.0.10",
@@ -27,17 +28,18 @@
     "mocha": "^7.1.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rafiudd/quizquh-api.git"
+    "url": "git+https://github.com/smktelkompwt/buku-saku-online-api"
   },
   "keywords": [],
-  "author": "",
+  "author-name": "Rayhan Rafiud Darojat",
+  "author-mail": "rayhanrafiudd@gmail.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rafiudd/quizquh-api/issues"
+    "url": "https://github.com/smktelkompwt/buku-saku-online-api/issues"
   },
-  "homepage": "https://github.com/rafiudd/quizquh-api#readme"
+  "homepage": "https://github.com/smktelkompwt/buku-saku-online-api#readme"
 }

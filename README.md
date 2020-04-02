@@ -5,9 +5,33 @@ Bukusaku is a student reporting and monitoring application, this is a repository
 - Nodejs
 - Docker
 - Docker Compose
+- Mocha Chai
+
+### Environtment Setup
+- Clone this repository
+- Copy .env.local to .env
+- If you want up to server use .env.production
+
+
+### Mongodb User Setup
+- Copy init-mongo.example.js to init-mongo.js
+- Change up to you
+```
+db.createUser(
+    {
+        user : "yourusername",
+        pwd : "yourpassword",
+        roles : [
+            {
+                role : "readWrite",
+                db : "buku-saku"            
+            }        
+        ]    
+    }
+)
+```
 
 ### How To Use
-- Clone this repository
 - Install package that used in this project
 ```
 npm install or yarn install

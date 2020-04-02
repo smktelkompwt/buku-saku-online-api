@@ -11,6 +11,8 @@ Bukusaku is a student reporting and monitoring application, this is a repository
 - Clone this repository
 - Copy .env.local to .env
 - If you want up to server use .env.production
+- Copy config.example.json to config.json
+- Set your environment too
 
 
 ### Mongodb User Setup

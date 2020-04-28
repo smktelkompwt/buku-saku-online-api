@@ -25,7 +25,8 @@ router.get('/all', getAllPelanggaran);
 router.get('/me', getAllPelanggaran);
 router.get('/', getPelanggaranByid);
 router.delete('/delete', deleteAllLaporan);
-router.post('/prestasi', laporPrestasi)
+router.post('/prestasi', laporPrestasi);
+router.delete('/remove', deleteLaporById)
 module.exports = router;
 
 async function uploadPelanggaran(req,res) {
@@ -251,5 +252,23 @@ async function laporPrestasi(req,res) {
        return response.wrapper_success(res, 200, 'Succes Upload Prestasi', query )
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, error)                                 
+    }
+}
+
+async function deleteLaporById(req,res) {
+    try {
+        let query = await Lapor.findByIdAndRemove({ _id: req.query.id });
+        
+        // this will get token to auth user and insert to activity
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        activity("Delete Laporan",user_id)
+
+        return response.wrapper_success(res, 200, "Sukses Delete Laporan Pelanggaran", query)
+    } catch (error) {
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                
     }
 }

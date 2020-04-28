@@ -77,7 +77,7 @@ async function getUserInClass(req,res) {
             return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Kelas tidak ditemukan')                 
         }
 
-        let query = await User.find({ 'class': getClass, 'role': 'user' });
+        let query = await User.find({ 'class': getClass, 'role': 'user' }).sort({ "nis": 1 });;
 
         // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');

@@ -25,7 +25,8 @@ router.get('/all', getAllPelanggaran);
 router.get('/me', getAllPelanggaran);
 router.get('/', getPelanggaranByid);
 router.delete('/delete', deleteAllLaporan);
-router.post('/prestasi', laporPrestasi)
+router.post('/prestasi', laporPrestasi);
+router.delete('/remove', deleteLaporById)
 module.exports = router;
 
 async function uploadPelanggaran(req,res) {
@@ -57,20 +58,32 @@ async function uploadPelanggaran(req,res) {
         if(!checkBucket) {
           await minio.bucketCreate(bucket);
         }
-        
-        const objectName = {
-            folder: `${getUser[0].nis}`,
-            filename: Date.now()
-        };
-      
-        const uploadPhoto = await uploads.uploadImages(bucket, req.body.image, objectName);
-      
-        if (uploadPhoto.err) {
-          return wrapper.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong');
+
+        let uploadPhoto, resultImage;
+
+        if(req.body.image.length < 1) {
+            req.body.image === null
+            uploadPhoto = null
+        } else {
+            const objectName = {
+                folder: `${getUser[0].nis}`,
+                filename: Date.now()
+            };
+    
+            uploadPhoto = await uploads.uploadImages(bucket, req.body.image, objectName);
+            if (uploadPhoto.err) {
+                return wrapper.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong');
+            }
         }
+        
         const minioEndpoint = "54.210.29.24"
         const port = 9000;
-        let resultImage = `${minioEndpoint}:${port}/${bucket}/${uploadPhoto}`
+
+        if(uploadPhoto === null) {
+            resultImage = null
+        } else {
+            resultImage = `${minioEndpoint}:${port}/${bucket}/${uploadPhoto}`
+        }
 
         let model = {
             user: {
@@ -88,7 +101,7 @@ async function uploadPelanggaran(req,res) {
                 id: getPelapor[0]._id,
                 nama: getPelapor[0].name
             },
-            image: resultImage,
+            image: resultImage ? resultImage: null,
             createdDate: dateFormat(Date.now())
        }    
        
@@ -107,7 +120,6 @@ async function uploadPelanggaran(req,res) {
        let query = await lapor.save();
 
         // this will get token to auth user and insert to activity
-       
        let activityModel = {
            user_id: getPelapor[0]._id,
            username: getPelapor[0].name,
@@ -120,6 +132,7 @@ async function uploadPelanggaran(req,res) {
 
        return response.wrapper_success(res, 200, 'Succes Upload Pelanggaran', query )
     } catch (error) {
+        console.log(error)
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, error)         
         
     }
@@ -251,5 +264,23 @@ async function laporPrestasi(req,res) {
        return response.wrapper_success(res, 200, 'Succes Upload Prestasi', query )
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, error)                                 
+    }
+}
+
+async function deleteLaporById(req,res) {
+    try {
+        let query = await Lapor.findByIdAndRemove({ _id: req.query.id });
+        
+        // this will get token to auth user and insert to activity
+        let token = req.headers.authorization.replace('Bearer ','');
+    
+        let decode = jwt.decode(token);
+        let user_id = decode.sub;
+
+        activity("Delete Laporan",user_id)
+
+        return response.wrapper_success(res, 200, "Sukses Delete Laporan Pelanggaran", query)
+    } catch (error) {
+        return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')                
     }
 }

@@ -224,6 +224,7 @@ async function getUserbyId(req, res) {
             kelas: query.class,
             email: query.email,
             point: query.point,
+            password: query.password,
             countPelanggaran: getPelanggaran.length,
             pelanggaran: getPelanggaran
         }

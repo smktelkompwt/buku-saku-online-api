@@ -18,7 +18,6 @@ const Aktivitas = db.Aktivitas;
 // routes
 router.post('/admin/login', authenticateAdmin);
 router.post('/admin/register', createAdmin);
-// router.post('/superadmin/register', createSuperAdmin);
 router.get('/admin/all', getAllAdmin);
 router.post('/register', registerUser);
 router.post('/login', authenticateUser);
@@ -55,29 +54,6 @@ async function createAdmin(req,res) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')        
     }
 }
-
-// async function createSuperAdmin(req,res) {
-//     try {
-//         let model = {
-//             name : req.body.name,
-//             email : req.body.email,
-//             password : bcrypt.hashSync(req.body.password, 10),
-//             role: "superadmin"
-//         }
-//         let checkEmail = await User.findOne({ "email" : model.email });
-    
-//         if (checkEmail) {
-//             return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Email is already taken')
-//         }
-    
-//         const user = new User(model)
-//         let query = await user.save();
-    
-//         return response.wrapper_success(res, 200, 'Succes Register Superadmin', query )
-//     } catch (error) {
-//         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')        
-//     }
-// }
 
 async function authenticateAdmin(req, res) {
     try {
@@ -199,7 +175,10 @@ async function getAllUser(req,res) {
 
 async function getAllAdmin(req,res) {
     try {
-        let query = await User.find({ "role": "admin" });
+        let queryAdmin = await User.find({ "role": "admin" });
+        let querySuperadmin = await User.find({ "role": "superadmin"});
+
+        let query = await queryAdmin.concat(querySuperadmin);
 
         // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');

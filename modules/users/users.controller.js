@@ -38,7 +38,7 @@ async function createAdmin(req,res) {
             name : req.body.name,
             email : req.body.email,
             password : bcrypt.hashSync(req.body.password, 10),
-            role: "admin"
+            role: req.body.role
         }
         let checkEmail = await User.findOne({ "email" : model.email });
     
@@ -53,7 +53,6 @@ async function createAdmin(req,res) {
     } catch (error) {
         return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Something is wrong')        
     }
-    
 }
 
 async function authenticateAdmin(req, res) {
@@ -68,7 +67,7 @@ async function authenticateAdmin(req, res) {
             return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Email Incorrect')
         }
 
-        if(checkEmail.role != "admin") {
+        if(checkEmail.role === "user") {
             return response.wrapper_error(res, httpError.INTERNAL_ERROR, 'Anda Bukan Admin')
         }
     
@@ -176,7 +175,10 @@ async function getAllUser(req,res) {
 
 async function getAllAdmin(req,res) {
     try {
-        let query = await User.find({ "role": "admin" });
+        let queryAdmin = await User.find({ "role": "admin" });
+        let querySuperadmin = await User.find({ "role": "superadmin"});
+
+        let query = await queryAdmin.concat(querySuperadmin);
 
         // this will get token to auth user and insert to activity
         let token = req.headers.authorization.replace('Bearer ','');
@@ -222,6 +224,7 @@ async function getUserbyId(req, res) {
             kelas: query.class,
             email: query.email,
             point: query.point,
+            password: query.password,
             countPelanggaran: getPelanggaran.length,
             pelanggaran: getPelanggaran
         }
@@ -293,6 +296,7 @@ async function getUserbyToken(req, res) {
                 class: query[0].class,
                 point: query[0].point,
                 email: query[0].email,
+                role: query[0].role,
                 createdDate: query[0].createdDate,
                 photo: getPelanggaran[0].image ? photo: 'https://avatars0.githubusercontent.com/u/51704590?s=200&v=4'
             }
@@ -308,6 +312,7 @@ async function getUserbyToken(req, res) {
                 class: query[0].class,
                 point: query[0].point,
                 email: query[0].email,
+                role: query[0].role,
                 createdDate: query[0].createdDate,
                 photo: 'https://avatars0.githubusercontent.com/u/51704590?s=200&v=4'
             }
